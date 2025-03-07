@@ -1,28 +1,13 @@
-window.addEventListener('DOMContentLoaded', event => {
-
-    // Toggle the side navigation on small screens
-    const sidebarToggle = document.body.querySelector('#sidebarToggle');
-    if (sidebarToggle) {
-        sidebarToggle.addEventListener('click', event => {
-            event.preventDefault();
-            document.body.classList.toggle('sb-sidenav-toggled');
-        });
-    }
-
-    // Detect screen size change and adjust sidebar visibility
-    const adjustSidebarVisibility = () => {
-        const screenWidth = window.innerWidth;
-        if (screenWidth < 992) {
-            document.getElementById('layoutSidenav_nav').classList.add('d-none');
+// Add this JavaScript code at the bottom of your HTML file, just before the closing </body> tag
+document.addEventListener('DOMContentLoaded', function() {
+    const sidebarToggle = document.getElementById('sidebarToggle');
+    const layoutSidenav = document.getElementById('layoutSidenav');
+    
+    sidebarToggle.addEventListener('click', function() {
+        if (layoutSidenav.style.display !== 'none') {
+            layoutSidenav.style.display = 'none';
         } else {
-            document.getElementById('layoutSidenav_nav').classList.remove('d-none');
+            layoutSidenav.style.display = '';
         }
-    };
-
-    // Initial check and set up
-    adjustSidebarVisibility();
-
-    // Add resize event listener to handle dynamic changes in screen size
-    window.addEventListener('resize', adjustSidebarVisibility);
-
+    });
 });
