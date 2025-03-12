@@ -12,7 +12,7 @@
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     </head>
-    <body class="d-flex flex-column vh-100" style="background-color: #00879E;">
+    <body class="d-flex flex-column vh-100" style="background-color: #B9B28A;">
     <main class="flex-grow-1">
         @yield('containAuthSys')
     </main>

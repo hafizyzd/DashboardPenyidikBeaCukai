@@ -61,7 +61,7 @@
                                 </a>
                                 <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                     <nav class="sb-sidenav-menu-nested nav">
-                                        <a class="nav-link" href="#">Submit Data Laporan</a>
+                                        <a class="nav-link" href="/upload">Submit Data Laporan</a>
                                     </nav>
                                 </div>
                             </div>
