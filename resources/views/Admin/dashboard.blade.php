@@ -61,7 +61,7 @@
                                 </a>
                                 <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                     <nav class="sb-sidenav-menu-nested nav">
-                                        <a class="nav-link" href="/upload">Submit Data Laporan</a>
+                                        <a class="nav-link" href="#">Submit Data Laporan</a>
                                     </nav>
                                 </div>
                             </div>
@@ -148,107 +148,102 @@
                                 </div>
                             </div>
                             <div class="card mb-4">
-                                <div class="card-header">
+                                <div class="card-header thick">
                                     <i class="fas fa-table me-1"></i>
-                                    DataTable Example
+                                    Rekapitulasi Penyidikan
                                 </div>
+                                <div class="ms-3 mt-2"><a href="{{ route('exportrekapitulasi')}}" class="btn btn-success">Export Data Excel</a></div>
                                 <div class="card-body">
-                                    <table id="datatablesSimple">
+                                <div class="table-container mt-1">
+                                    <table class="table table-bordered">
                                         <thead>
-                                            <tr>
-                                                <th>Name</th>
-                                                <th>Position</th>
-                                                <th>Office</th>
-                                                <th>Age</th>
-                                                <th>Start date</th>
-                                                <th>Salary</th>
+                                            <tr class="text-center">
+                                                <th>Kantor</th>
+                                                <th>SBP No</th>
+                                                <th>SBP Tanggal</th>
+                                                <th>LP/LP1 No</th>
+                                                <th>LP/LP1 Tanggal</th>
+                                                <th>SPLIT No</th>
+                                                <th>SPLIT Tanggal</th>
+                                                <th>Jenis Pelanggaran</th>
+                                                <th>Nama Pelanggaran</th>
+                                                <th>NIK/NPWP</th>
+                                                <th>Alternatif Penyelesaian Masalah</th>
+                                                <th>Pasal yang dilanggar</th>
+                                                <th>No LK</th>
+                                                <th>SPTP No</th>
+                                                <th>SPTP Tanggal</th>
+                                                <th>SPDP No</th>
+                                                <th>SPDP Tanggal</th>
+                                                <th>Nama Tersangka</th>
+                                                <th>NIK/NPWP2</th>
+                                                <th>Status Proses</th>
+                                                <th>Perkiraan Nilai Barang</th>
+                                                <th>Potensi Kehilangan Penerimaan Negara</th>
+                                                <th>Nama Pengguna Jasa</th>
+                                                <th>NPWP Pengguna Jasa</th>
+                                                <th>Kode Komoditi</th>
+                                                <th>Jenis</th>
+                                                <th>Jumlah</th>
+                                                <th>Satuan</th>
+                                                <th>BA Pecacahan No</th>
+                                                <th>BA Pecacahan Tanggal</th>
+                                                <th>Kep BDN No</th>
+                                                <th>KP BDN Tanggal</th>
+                                                <th>Kep BMN No</th>
+                                                <th>KP BMN Tanggal</th>
+                                                <th>Tap Sita No</th>
+                                                <th>Tap Sita Tanggal</th>
+                                                <th>Status</th>
+                                                <th>Proses</th>
                                             </tr>
                                         </thead>
-                                        <tfoot>
-                                            <tr>
-                                                <th>Name</th>
-                                                <th>Position</th>
-                                                <th>Office</th>
-                                                <th>Age</th>
-                                                <th>Start date</th>
-                                                <th>Salary</th>
-                                            </tr>
-                                        </tfoot>
                                         <tbody>
-                                            <tr>
-                                                <td>Tiger Nixon</td>
-                                                <td>System Architect</td>
-                                                <td>Edinburgh</td>
-                                                <td>61</td>
-                                                <td>2011/04/25</td>
-                                                <td>$320,800</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Garrett Winters</td>
-                                                <td>Accountant</td>
-                                                <td>Tokyo</td>
-                                                <td>63</td>
-                                                <td>2011/07/25</td>
-                                                <td>$170,750</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Ashton Cox</td>
-                                                <td>Junior Technical Author</td>
-                                                <td>San Francisco</td>
-                                                <td>66</td>
-                                                <td>2009/01/12</td>
-                                                <td>$86,000</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Cedric Kelly</td>
-                                                <td>Senior Javascript Developer</td>
-                                                <td>Edinburgh</td>
-                                                <td>22</td>
-                                                <td>2012/03/29</td>
-                                                <td>$433,060</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Airi Satou</td>
-                                                <td>Accountant</td>
-                                                <td>Tokyo</td>
-                                                <td>33</td>
-                                                <td>2008/11/28</td>
-                                                <td>$162,700</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Brielle Williamson</td>
-                                                <td>Integration Specialist</td>
-                                                <td>New York</td>
-                                                <td>61</td>
-                                                <td>2012/12/02</td>
-                                                <td>$372,000</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Herrod Chandler</td>
-                                                <td>Sales Assistant</td>
-                                                <td>San Francisco</td>
-                                                <td>59</td>
-                                                <td>2012/08/06</td>
-                                                <td>$137,500</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Rhona Davidson</td>
-                                                <td>Integration Specialist</td>
-                                                <td>Tokyo</td>
-                                                <td>55</td>
-                                                <td>2010/10/14</td>
-                                                <td>$327,900</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Colleen Hurst</td>
-                                                <td>Javascript Developer</td>
-                                                <td>San Francisco</td>
-                                                <td>39</td>
-                                                <td>2009/09/15</td>
-                                                <td>$205,500</td>
-                                            </tr>
+                                            @foreach($rekapitulasi as $item)
+                                                <tr>
+                                                    <td>{{ $item->kantor }}</td>
+                                                    <td>{{ $item->sbp_no }}</td>
+                                                    <td>{{ $item->sbp_tgl }}</td>
+                                                    <td>{{ $item->lp_no }}</td>
+                                                    <td>{{ $item->lp_tgl }}</td>
+                                                    <td>{{ $item->split_no }}</td>
+                                                    <td>{{ $item->split_tgl }}</td>
+                                                    <td>{{ $item->jenis_pelanggaran }}</td>
+                                                    <td>{{ $item->nama_pelanggaran }}</td>
+                                                    <td>{{ $item->nik_npwp1 }}</td>
+                                                    <td>{{ $item->alternatif_penyelesaian_masalah }}</td>
+                                                    <td>{{ $item->pasal_dilanggar }}</td>
+                                                    <td>{{ $item->lk_no }}</td>
+                                                    <td>{{ $item->sptp_no }}</td>
+                                                    <td>{{ $item->sptp_tgl }}</td>
+                                                    <td>{{ $item->spdp_no }}</td>
+                                                    <td>{{ $item->spdp_tgl }}</td>
+                                                    <td>{{ $item->nama_tsk }}</td>
+                                                    <td>{{ $item->nik_npwp2 }}</td>
+                                                    <td>{{ $item->status_proses }}</td>
+                                                    <td>{{ $item->perkiraan_nilai_barang }}</td>
+                                                    <td>{{ $item->potensi_kehilangan_penerimaan_negara }}</td>
+                                                    <td>{{ $item->nama_pengguna_jasa }}</td>
+                                                    <td>{{ $item->npwp_pengguna_jasa }}</td>
+                                                    <td>{{ $item->kode_komoditi }}</td>
+                                                    <td>{{ $item->jenis }}</td>
+                                                    <td>{{ $item->jumlah }}</td>
+                                                    <td>{{ $item->satuan }}</td>
+                                                    <td>{{ $item->ba_pecahan_no }}</td>
+                                                    <td>{{ $item->ba_pecahan_tgl }}</td>
+                                                    <td>{{ $item->kep_bdn_no }}</td>
+                                                    <td>{{ $item->kp_bdn_tgl }}</td>
+                                                    <td>{{ $item->kep_bmn_no }}</td>
+                                                    <td>{{ $item->kp_bmn_tgl }}</td>
+                                                    <td>{{ $item->tap_sita_no }}</td>
+                                                    <td>{{ $item->tap_sita_tgl }}</td>
+                                                    <td>{{ $item->status }}</td>
+                                                    <td>{{ $item->proses }}</td>
+                                                </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
+                                </div>
                                 </div>
                             </div>
                         </div>
@@ -314,5 +309,18 @@
         width: 100%;
         text-align: center;
     }
-        </style>
+
+    /* Membuat tabel bisa digulir secara vertikal */
+    .table-container {
+        max-height: 400px; /* Atur tinggi sesuai kebutuhan */
+        overflow-y: auto; /* Menambahkan scroll vertical */
+        display: block; /* Pastikan elemen menjadi block agar overflow bekerja */
+    }
+
+    .thick {
+        font-weight: bold;
+    }
+    
+
+    </style>
 </html>

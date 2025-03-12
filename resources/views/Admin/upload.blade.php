@@ -1,38 +1,30 @@
 @extends('Admin.layouts.adminLayouts')
 @section('containAdminSys')
-    <div class="container">
-        <div class="card">
-            <div class="card-header text-center">
-                <strong>Upload File Excel</strong>
-            </div>
-            <div class="card-body">
-                <h1>help</h1>
-                <!-- <form action="{{ route('excel.upload') }}" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    <div class="form-group">
-                        <label for="excelFile">Pilih File Excel (XLSX/XLS)</label>
-                        <input type="file" class="form-control" name="excelFile" id="excelFile" accept=".xlsx,.xls" required>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary mt-4">Unggah File</button>
-                </form>
-
-                
-                <a href="{{ route('excel.downloadTemplate') }}" class="btn btn-secondary mt-3">Download Template Excel</a>
-
-                @if(session('success'))
-                    <div class="alert alert-success mt-4">
-                        {{ session('success') }}
-                    </div>
-                @endif
-                @if(session('error'))
-                    <div class="alert alert-danger mt-4">
-                        {{ session('error') }}
-                    </div>
-                @endif -->
-            </div>
-        </div>
+    <div class="container mt-5">
+        <h1>Data Rekapitulasi</h1>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Kantor</th>
+                    <th>SBP No</th>
+                    <th>SBP Tanggal</th>
+                    <th>LP No</th>
+                    <th>LP Tanggal</th>
+                    <!-- Tambahkan kolom lainnya sesuai kebutuhan -->
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($rekapitulasi as $item)
+                    <tr>
+                        <td>{{ $item->kantor }}</td>
+                        <td>{{ $item->sbp_no }}</td>
+                        <td>{{ $item->sbp_tgl }}</td>
+                        <td>{{ $item->lp_no }}</td>
+                        <td>{{ $item->lp_tgl }}</td>
+                        <!-- Tambahkan kolom lainnya sesuai kebutuhan -->
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 @endsection
