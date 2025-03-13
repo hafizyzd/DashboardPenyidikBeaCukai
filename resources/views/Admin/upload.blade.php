@@ -66,16 +66,27 @@
                     <div class="card-header">
                         Upload File Rekapitulasi
                     </div>
-                    <div class="card-body">
-                        <!-- Form upload file -->
-                        <form action="#" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('importrekapitulasi') }}" method="POST" enctype="multipart/form-data">
+                        <div class="card-body">
+                            {{ csrf_field() }}
                             <div class="mb-3">
                                 <label for="excelFile" class="form-label">Choose File</label>
                                 <input class="form-control" type="file" id="excelFile" name="excelFile" accept=".xlsx, .xls, .csv" required>
                             </div>
                             <button type="submit" class="btn btn-primary">Upload</button>
-                        </form>
-                    </div>
+                            @if(session('success'))
+                                <div class="alert alert-success">
+                                    {{ session('success') }}
+                                </div>
+                            @endif
+
+                            @if(session('error'))
+                                <div class="alert alert-danger">
+                                    {{ session('error') }}
+                                </div>
+                            @endif
+                        </div>
+                    </form>
                     <div class="card-footer">
                         <button type="button" class="btn btn-info mx-auto text-white">Download Template Excel Disini</button>
                     </div>

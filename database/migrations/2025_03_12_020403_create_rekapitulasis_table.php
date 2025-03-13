@@ -6,20 +6,17 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('rekapitulasis', function (Blueprint $table) {
             $table->id();
             $table->string('kantor', 200);
             $table->string('sbp_no',150);
-            $table->date('sbp_tgl');
+            $table->date('sbp_tgl')->nullable();  // Menjadikan nullable
             $table->string('lp_no', 150);
-            $table->date('lp_tgl');
+            $table->date('lp_tgl')->nullable();  // Menjadikan nullable
             $table->string('split_no', 150);
-            $table->date('split_tgl');
+            $table->date('split_tgl')->nullable();  // Menjadikan nullable
             $table->string('jenis_pelanggaran', 200);
             $table->string('nama_pelanggaran', 255);
             $table->string('nik_npwp1', 250);
@@ -27,9 +24,9 @@ return new class extends Migration
             $table->string('pasal_dilanggar', 255);
             $table->string('lk_no', 200);
             $table->string('sptp_no', 200);
-            $table->date('sptp_tgl');
+            $table->string('sptp_tgl',100)->nullable();  // Menjadikan nullable
             $table->string('spdp_no', 200);
-            $table->date('spdp_tgl');
+            $table->string('spdp_tgl',100)->nullable();  // Menjadikan nullable
             $table->string('nama_tsk', 255);
             $table->string('nik_npwp2', 255);
             $table->string('status_proses', 100);
@@ -39,16 +36,16 @@ return new class extends Migration
             $table->string('npwp_pengguna_jasa', 200);
             $table->string('kode_komoditi', 100);
             $table->string('jenis', 100);
-            $table->integer('jumlah');
+            $table->float('jumlah', 8, 2);
             $table->string('satuan',50);
             $table->string('ba_pecahan_no', 150);
-            $table->date('ba_pecahan_tgl');
+            $table->date('ba_pecahan_tgl')->nullable();  // Menjadikan nullable
             $table->string('kep_bdn_no', 150);
-            $table->date('kp_bdn_tgl');
+            $table->date('kp_bdn_tgl')->nullable();  // Menjadikan nullable
             $table->string('kep_bmn_no', 150);
-            $table->date('kp_bmn_tgl');
+            $table->date('kp_bmn_tgl')->nullable();  // Menjadikan nullable
             $table->string('tap_sita_no', 150);
-            $table->date('tap_sita_tgl');
+            $table->date('tap_sita_tgl')->nullable();  // Menjadikan nullable
             $table->string('status', 100);
             $table->string('proses', 100);
             $table->timestamps();

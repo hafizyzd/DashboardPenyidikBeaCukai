@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Exports\RekapitulasiExport;
+use App\Imports\RekapitulasiImport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 
@@ -23,6 +24,27 @@ class RekapitulasiController extends Controller
 
     public function rekapitulasiexport(){
         return Excel::download(new RekapitulasiExport,'rekapitulasi.xlsx');
+    }
+
+    // public function rekapitulasiimportexcel(Request $request){
+    //     $file = $request->file('file');
+    //     $namaFile = $file->getClientOriginalName();
+    //     $file->move('DataRekapitulasi', $namaFile);
+
+    //     Excel::import(new RekapitulasiImport,public_path('/DataRekapitulasi/'.$namaFile));
+    //     return redirect('/Admin.upload');
+    // }
+    public function rekapitulasiimportexcel(Request $request){
+        if ($request->hasFile('excelFile')) { // Sesuaikan dengan nama input file
+            $file = $request->file('excelFile'); // Sesuaikan dengan nama input file
+            $namaFile = $file->getClientOriginalName();
+            $file->move('DataRekapitulasi', $namaFile);
+    
+            Excel::import(new RekapitulasiImport, public_path('/DataRekapitulasi/'.$namaFile));
+            return redirect('/upload')->with('success', 'File berhasil diunggah dan diproses.');
+        } else {
+            return redirect('/upload')->with('error', 'Tidak ada file yang diunggah.');
+        }
     }
 
     public function upload(){
