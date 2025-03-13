@@ -2,31 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Exports\RekapitulasiExport;
-use Maatwebsite\Excel\Facades\Excel;
-use App\Http\Controllers\Controller;
-
-use App\Models\Rekapitulasi;
 use Illuminate\Http\Request;
 
-class RekapitulasiController extends Controller
+class DashboardController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $rekapitulasi = Rekapitulasi::all();
-        //dd('rekapitulasi');
-        return view('Admin.dashboard', compact('rekapitulasi'));
-    }
-
-    public function rekapitulasiexport(){
-        return Excel::download(new RekapitulasiExport,'rekapitulasi.xlsx');
-    }
-
-    public function upload(){
-        return view('Admin.upload');
+        return view('Admin.dashboard');
     }
 
     /**

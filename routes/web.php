@@ -3,7 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RekapitulasiController;
 
+// dashboard
 Route::get('/', function () {return view('Admin/dashboard');});
+Route::get('/dashboard', [RekapitulasiController::class, 'index'])->name('dashboard');
 // login
 Route::get('/login', function () {return view('authentication.login');});
 Route::get('/register', function () {return view('authentication.register');});
@@ -14,6 +16,8 @@ Route::get('/forgotpassword', function () {return view('authentication.forgotpas
 Route::get('/', [RekapitulasiController::class, 'index'])->name('dashboard');
 Route::get('/exportrekapitulasi', [RekapitulasiController::class, 'rekapitulasiexport'])->name('exportrekapitulasi');
 
+// import excel 
+Route::get('/upload', [RekapitulasiController::class, 'upload'])->name('upload');
 // for register and login
 Route::get('/forgot', function () {return view('authentication.forgotpassword');});
 Route::get('/registerlog', function () {return view('authentication.register');});
