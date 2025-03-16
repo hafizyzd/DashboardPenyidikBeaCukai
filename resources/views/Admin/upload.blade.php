@@ -66,27 +66,28 @@
                     <div class="card-header">
                         Upload File Rekapitulasi
                     </div>
-                    <form action="{{ route('importrekapitulasi') }}" method="POST" enctype="multipart/form-data">
-                        <div class="card-body">
-                            {{ csrf_field() }}
-                            <div class="mb-3">
-                                <label for="excelFile" class="form-label">Choose File</label>
-                                <input class="form-control" type="file" id="excelFile" name="excelFile" accept=".xlsx, .xls, .csv" required>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Upload</button>
-                            @if(session('success'))
-                                <div class="alert alert-success">
-                                    {{ session('success') }}
-                                </div>
-                            @endif
 
-                            @if(session('error'))
-                                <div class="alert alert-danger">
-                                    {{ session('error') }}
-                                </div>
-                            @endif
+                    <form action="{{ route('importrekapitulasi') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="mb-3">
+                            <label for="excelFile" class="form-label">Choose File</label>
+                            <input class="form-control" type="file" id="file" name="file" accept=".xlsx, .xls, .csv" required>
                         </div>
+                        <button type="submit" class="btn btn-primary m-2">Upload</button>
                     </form>
+
+                    <div>
+                        @if($message = Session::get('success'))
+                            <div class="alert alert-success" role="alert">
+                                {{ $message }}
+                            </div>
+                        @elseif($message =  Session::get('error'))
+                            <div class="alert alert-danger" role="alert">
+                                {{ $message }}
+                            </div>
+                        @endif
+                    </div>
+
                     <div class="card-footer">
                         <button type="button" class="btn btn-info mx-auto text-white">Download Template Excel Disini</button>
                     </div>

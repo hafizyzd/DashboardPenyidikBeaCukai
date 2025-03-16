@@ -18,8 +18,9 @@ Route::get('/exportrekapitulasi', [RekapitulasiController::class, 'rekapitulasie
 
 // import excel 
 Route::get('/upload', [RekapitulasiController::class, 'upload'])->name('upload');
-// Route::post('/importrekapitulasi', [RekapitulasiController::class, 'rekapitulasiimportexcel'])->name('importrekapitulasi');
 Route::post('/importrekapitulasi', [RekapitulasiController::class, 'rekapitulasiimportexcel'])->name('importrekapitulasi');
+
+
 // for register and login
 Route::get('/forgot', function () {return view('authentication.forgotpassword');});
 Route::get('/registerlog', function () {return view('authentication.register');});
