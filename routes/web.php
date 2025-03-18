@@ -29,5 +29,5 @@ Route::get('/passtosign', function () {return view('authentication.login');});
 Route::get('/passtolog', function () {return view('authentication.login');});
 
 
-//dashboard count view
-Route::get('/dashboard', [RekapitulasiController::class, 'calculateloss'])->name('dashboard');
+//dashboard count 
+Route::get('/dashboard', [RekapitulasiController::class, 'dashboard'])->name('dashboard');

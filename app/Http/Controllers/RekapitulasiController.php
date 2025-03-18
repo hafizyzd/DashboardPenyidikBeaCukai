@@ -23,13 +23,14 @@ class RekapitulasiController extends Controller
         return Excel::download(new RekapitulasiExport,'rekapitulasi.xlsx');
     }
 
-    public function calculateloss(){
+    public function dashboard(){
         $rekapitulasi = Rekapitulasi::all();
         $totalPotensiKerugian = Rekapitulasi::sum('potensi_kehilangan_penerimaan_negara');
-        return view('Admin.dashboard',compact('rekapitulasi','totalPotensiKerugian'));
-    }
+        $jumlahTersangka = Rekapitulasi::whereNotIn('nama_pelanggar', ['Tidak dikenal','tidak dikenal', '-'])->count();
 
-    //TESTER
+        return view('Admin.dashboard',compact('jumlahTersangka','totalPotensiKerugian','rekapitulasi'));
+    }
+    
     public function rekapitulasiimportexcel(Request $request)
     {
         if ($request->hasFile('file')) { 
