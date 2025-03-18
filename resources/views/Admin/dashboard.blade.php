@@ -141,6 +141,7 @@
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr class="text-center">
+                                                <th>No</th>
                                                 <th>Kantor</th>
                                                 <th>SBP No</th>
                                                 <th>SBP Tanggal</th>
@@ -184,6 +185,7 @@
                                         <tbody>
                                             @foreach($rekapitulasi as $item)
                                                 <tr>
+                                                    <td>{{ $item->id }}</td>
                                                     <td>{{ $item->kantor }}</td>
                                                     <td>{{ $item->sbp_no }}</td>
                                                     <td>{{ $item->sbp_tgl }}</td>

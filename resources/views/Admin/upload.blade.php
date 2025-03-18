@@ -69,13 +69,12 @@
 
                     <form action="{{ route('importrekapitulasi') }}" method="POST" enctype="multipart/form-data">
                         @csrf
-                        <div class="mb-3">
+                        <div class="m-3">
                             <label for="excelFile" class="form-label">Choose File</label>
                             <input class="form-control" type="file" id="file" name="file" accept=".xlsx, .xls, .csv" required>
                         </div>
-                        <button type="submit" class="btn btn-primary m-2">Upload</button>
+                        <button type="submit" class="btn btn-primary m-3">Upload</button>
                     </form>
-
                     <div>
                         @if($message = Session::get('success'))
                             <div class="alert alert-success" role="alert">
