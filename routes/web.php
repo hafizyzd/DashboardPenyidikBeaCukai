@@ -27,3 +27,7 @@ Route::get('/registerlog', function () {return view('authentication.register');}
 Route::get('/registolog', function () {return view('authentication.login');});
 Route::get('/passtosign', function () {return view('authentication.login');});
 Route::get('/passtolog', function () {return view('authentication.login');});
+
+
+//dashboard count view
+Route::get('/dashboard', [RekapitulasiController::class, 'calculateloss'])->name('dashboard');

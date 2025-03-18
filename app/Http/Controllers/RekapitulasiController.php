@@ -23,19 +23,11 @@ class RekapitulasiController extends Controller
         return Excel::download(new RekapitulasiExport,'rekapitulasi.xlsx');
     }
 
-    
-    // public function rekapitulasiimportexcel(Request $request){
-    //     if ($request->hasFile('file')) { 
-    //         $file = $request->file('file'); 
-    //         $namaFile = $file->getClientOriginalName();
-    //         $file->move('DataRekapitulasi', $namaFile);
-    
-    //         Excel::import(new RekapitulasiImport, public_path('/DataRekapitulasi/'.$namaFile));
-    //         return redirect('/upload')->with('success', 'File berhasil diunggah dan diproses.');
-    //     } else {
-    //         return redirect('/upload')->with('error', 'Tidak ada file yang diunggah.');
-    //     }
-    // }
+    public function calculateloss(){
+        $rekapitulasi = Rekapitulasi::all();
+        $totalPotensiKerugian = Rekapitulasi::sum('potensi_kehilangan_penerimaan_negara');
+        return view('Admin.dashboard',compact('rekapitulasi','totalPotensiKerugian'));
+    }
 
     //TESTER
     public function rekapitulasiimportexcel(Request $request)

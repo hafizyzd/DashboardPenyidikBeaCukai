@@ -80,8 +80,10 @@
                                 </div>
                                 <div class="col-xl-3 col-md-6">
                                     <div class="card bg-warning text-white mb-4 text-center">
-                                        <div class="card-body">Potensi Kerugian Negara</div>
-                                        <div> <h3>Rp 66.030.401.000</h3> </div>
+                                        <div class="card-body">Dalam Proses Penyidikan</div>
+                                        <div>
+                                            <h3>1234</h3>
+                                        </div>
                                         <div class="card-footer d-flex align-items-center justify-content-between">
                                             <a class="small text-white stretched-link" href="#">View Details</a>
                                             <div class="small text-white"><i class="fas fa-angle-right"></i></div>
@@ -89,11 +91,13 @@
                                     </div>
                                 </div>
                                 <div class="col-xl-3 col-md-6">
-                                    <div class="card bg-success text-white mb-4 text-center">
-                                        <div class="card-body">Dalam Proses Penyidikan</div>
-                                        <div> <h3>46</h3> </div>
-                                        <div class="card-footer d-flex align-items-center justify-content-between">
-                                            <a class="small text-white stretched-link" href="#">View Details</a>
+                                    <div class="card bg-warning text-white mb-4 text-center">
+                                        <div class="card-body">Potensi Kerugian Negara</div>
+                                            <div>
+                                                <h3>{{ formatRupiah($totalPotensiKerugian) }}</h3>
+                                            </div>
+                                            <div class="card-footer d-flex align-items-center justify-content-between">
+                                                <a class="small text-white stretched-link" href="#">View Details</a>
                                             <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                         </div>
                                     </div>
