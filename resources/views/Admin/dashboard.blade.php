@@ -82,7 +82,7 @@
                                     <div class="card bg-warning text-white mb-4 text-center">
                                         <div class="card-body">Dalam Proses Penyidikan</div>
                                         <div>
-                                            <h3>1234</h3>
+                                            <h3>{{$statusProses}}</h3>
                                         </div>
                                         <div class="card-footer d-flex align-items-center justify-content-between">
                                             <a class="small text-white stretched-link" href="#">View Details</a>
