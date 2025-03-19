@@ -18,11 +18,8 @@ Route::get('/upload', [RekapitulasiController::class, 'upload'])->name('upload')
 Route::post('/importrekapitulasi', [RekapitulasiController::class, 'rekapitulasiimportexcel'])->name('importrekapitulasi');
 
 // Login
-Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
-Route::post('/login', [LoginController::class, 'login']);
-Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
-
-Auth::routes();
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('loginuser');
+Route::post('/login', [LoginController::class, 'login'])->name('loginuser.post');
 
 // Register
 Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
