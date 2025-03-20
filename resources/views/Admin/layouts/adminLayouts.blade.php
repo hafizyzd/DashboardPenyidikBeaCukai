@@ -18,6 +18,13 @@
     <body class="sb-nav-fixed">
         @yield('containAdminSys')
     </body>
+    <script>
+        document.getElementById('navbarDropdown').addEventListener('click', function (e) {
+            e.preventDefault();
+            var dropdown = new bootstrap.Dropdown(this);
+            dropdown.toggle();
+        });
+    </script>
     <style>
               
     #layoutSidenav_nav {
