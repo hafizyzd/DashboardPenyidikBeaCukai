@@ -4,7 +4,7 @@
     <div class="container d-flex justify-content-center align-items-center vh-100">
         <div class="col-md-6">
             <div class="card">
-            <div class="card-header text-center" style="background-color: #205781;"> <p style="color: white;">Login</p> </div>
+            <div class="card-header text-center" style="background-color: #205781;"> <h4 style="color: white;">Login</h4> </div>
                 <div class="card-body">
                     <form method="POST" action="{{ route('loginuser') }}">
                         @csrf

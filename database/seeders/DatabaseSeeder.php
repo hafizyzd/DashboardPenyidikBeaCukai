@@ -15,9 +15,9 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
         User::factory()->create([
-            'name' => 'budi pekerti',
-            'email' => 'beacukai@gmail.com',
-            'password' => 'cukaiaja'
+            'name' => 'fajrin',
+            'email' => 'fajrin@gmail.com',
+            'password' => 'cukaibea'
         ]);
         User::factory()->create([
             'name' => 'orange water',
@@ -25,9 +25,9 @@ class DatabaseSeeder extends Seeder
             'password' => 'cukaiaja'
         ]);
         User::factory()->create([
-            'name' => 'penguin',
-            'email' => 'penguin@gmail.com',
-            'password' => 'cukaibea'
+            'name' => 'admin',
+            'email' => 'admin@gmail.com',
+            'password' => 'admin'
         ]);
     }
 }
