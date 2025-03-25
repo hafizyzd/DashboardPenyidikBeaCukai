@@ -25,17 +25,7 @@ class LoginController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      */
     public function loginProsess(Request $request)
-    {
-        // $credentials = $request->validate([
-        //     'email' => 'required|email',
-        //     'password' => 'required',
-        // ]);
-        
-        // if(Auth::attempt($credentials)){
-        //     $request->session()->regenerate();
-        //     return redirect()->intended('/dashboard');
-        // }
-        
+    { 
         $request->validate([
             'email' => 'required|email',
             'password' => 'required',
@@ -63,6 +53,6 @@ class LoginController extends Controller
         Auth::logout(); // Logout user
         $request->session()->invalidate(); // Invalidate session
         $request->session()->regenerateToken(); // Regenerate CSRF token
-        return redirect()->route('login'); // Redirect ke halaman utama setelah logout
+        return redirect()->route('loginuser'); // Redirect ke halaman utama setelah logout
     }
 }

@@ -13,6 +13,11 @@ use Illuminate\Http\Request;
 
 class RekapitulasiController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $rekapitulasi = Rekapitulasi::all();
@@ -26,16 +31,6 @@ class RekapitulasiController extends Controller
     public function rekapitulasiexport(){
         return Excel::download(new RekapitulasiExport,'rekapitulasi.xlsx');
     }
-
-    // public function dashboard()
-    // {
-    //     $rekapitulasi = Rekapitulasi::all();
-    //     $totalPotensiKerugian = Rekapitulasi::sum('potensi_kehilangan_penerimaan_negara');
-    //     $jumlahTersangka = Rekapitulasi::whereNotIn('nama_pelanggar', ['Tidak dikenal','tidak dikenal', '-'])->count();
-    //     $statusProses = Rekapitulasi::whereNotIn('status_proses', [' ', '-'])->count();
-
-    //     return view('Admin.dashboard', compact('rekapitulasi', 'totalPotensiKerugian', 'jumlahTersangka','statusProses','rekapitulasi'));
-    // }
     
     public function rekapitulasiimportexcel(Request $request)
     {
