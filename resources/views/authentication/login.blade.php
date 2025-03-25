@@ -4,9 +4,9 @@
     <div class="container d-flex justify-content-center align-items-center vh-100">
         <div class="col-md-6">
             <div class="card">
-            <div class="card-header text-center" style="background-color: #205781;"> <h4 style="color: white;">Login</h4> </div>
+            <div class="card-header text-center" style="background-color: #205781;background-color: rgba ( 255 , 0 , 0 , 0.4 );"> <h4 style="color: white;">Login</h4> </div>
                 <div class="card-body">
-                    <form method="POST" action="{{ route('loginuser') }}">
+                    <form method="POST" action="{{ route('loginProsess') }}">
                         @csrf
                         <div class="form-group row mb-2">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
@@ -19,7 +19,7 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="form-group row">
+                        <div class="form-group row mb-2">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
@@ -30,7 +30,7 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="form-group row">
+                        <!-- <div class="form-group row">
                             <div class="col-md-6 offset-md-4">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
@@ -40,7 +40,7 @@
                                     </label>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

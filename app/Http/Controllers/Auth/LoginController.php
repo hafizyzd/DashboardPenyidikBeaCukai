@@ -24,26 +24,32 @@ class LoginController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function login(Request $request)
+    public function loginProsess(Request $request)
     {
-        // Validasi input
+        // $credentials = $request->validate([
+        //     'email' => 'required|email',
+        //     'password' => 'required',
+        // ]);
+        
+        // if(Auth::attempt($credentials)){
+        //     $request->session()->regenerate();
+        //     return redirect()->intended('/dashboard');
+        // }
+        
         $request->validate([
             'email' => 'required|email',
             'password' => 'required',
         ]);
-
-        // Coba melakukan login
+    
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials, $request->filled('remember'))) {
-            // Jika berhasil, regenerate session dan redirect ke dashboard
             $request->session()->regenerate();
-            return redirect()->intended('/dashboard'); // Sesuaikan dengan route tujuan setelah login
+            return redirect()->intended(route('dashboard'));
         }
-
-        // Jika gagal, kembali ke halaman login dengan pesan error
+    
         return back()->withErrors([
             'email' => 'Email atau password salah.',
-        ])->withInput($request->only('email', 'remember'));
+        ])->onlyInput('email');
     }
 
     /**
@@ -57,6 +63,6 @@ class LoginController extends Controller
         Auth::logout(); // Logout user
         $request->session()->invalidate(); // Invalidate session
         $request->session()->regenerateToken(); // Regenerate CSRF token
-        return redirect('/'); // Redirect ke halaman utama setelah logout
+        return redirect()->route('login'); // Redirect ke halaman utama setelah logout
     }
 }

@@ -27,15 +27,15 @@ class RekapitulasiController extends Controller
         return Excel::download(new RekapitulasiExport,'rekapitulasi.xlsx');
     }
 
-    public function dashboard()
-    {
-        $rekapitulasi = Rekapitulasi::all();
-        $totalPotensiKerugian = Rekapitulasi::sum('potensi_kehilangan_penerimaan_negara');
-        $jumlahTersangka = Rekapitulasi::whereNotIn('nama_pelanggar', ['Tidak dikenal','tidak dikenal', '-'])->count();
-        $statusProses = Rekapitulasi::whereNotIn('status_proses', [' ', '-'])->count();
+    // public function dashboard()
+    // {
+    //     $rekapitulasi = Rekapitulasi::all();
+    //     $totalPotensiKerugian = Rekapitulasi::sum('potensi_kehilangan_penerimaan_negara');
+    //     $jumlahTersangka = Rekapitulasi::whereNotIn('nama_pelanggar', ['Tidak dikenal','tidak dikenal', '-'])->count();
+    //     $statusProses = Rekapitulasi::whereNotIn('status_proses', [' ', '-'])->count();
 
-        return view('Admin.dashboard', compact('rekapitulasi', 'totalPotensiKerugian', 'jumlahTersangka','statusProses','rekapitulasi'));
-    }
+    //     return view('Admin.dashboard', compact('rekapitulasi', 'totalPotensiKerugian', 'jumlahTersangka','statusProses','rekapitulasi'));
+    // }
     
     public function rekapitulasiimportexcel(Request $request)
     {

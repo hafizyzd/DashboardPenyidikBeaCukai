@@ -10,8 +10,8 @@ Route::get('/', function () {return view('authentication/login');});
 
 // dashboard
 Route::get('/exportrekapitulasi', [RekapitulasiController::class, 'rekapitulasiexport'])->name('exportrekapitulasi');
-// Route::get('/', [RekapitulasiController::class, 'dashboard'])->name('dashboard');
-Route::get('/dashboard', [RekapitulasiController::class, 'index'])->name('dashboard');
+
+Route::get('/dashboard', [RekapitulasiController::class, 'index'])->name('dashboard')->middleware('auth');
 
 // import excel 
 Route::get('/upload', [RekapitulasiController::class, 'upload'])->name('upload');
@@ -19,7 +19,13 @@ Route::post('/importrekapitulasi', [RekapitulasiController::class, 'rekapitulasi
 
 // Login
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('loginuser');
-Route::post('/login', [LoginController::class, 'login'])->name('loginuser.post');
+Route::post('/login', [LoginController::class, 'loginProsess'])->name('loginProsess');
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::middleware('auth')->group(function () { 
+    Route::get('/admin/dashboard', function () {
+        return view('Admin.dashboard');
+    })->name('Admin.dashboard');
+});
 
 // Register
-Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
+// Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
