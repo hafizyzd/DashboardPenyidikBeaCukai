@@ -56,7 +56,9 @@
                         </div>
                         <div class="sb-sidenav-footer">
                             <div class="small">Logged in as:</div>
-                            <p class="mb-0 fw-bold text-3xl text-white">Budi Pekerti</p>
+                            @if (Auth::check())
+                                <p class="mb-0 fw-bold text-3xl text-white">{{ Auth::user()->name }}</p>
+                            @endif
                             <p class="mb-11" style="font-size:12px">Subdirektorat Penindakan dan Penyidikan</p>
                         </div>
                     </nav>
@@ -146,8 +148,29 @@
                                     <i class="fas fa-table me-1"></i>
                                     Rekapitulasi Penyidikan
                                 </div>
-                                <div class="ms-3 mt-2"><a href="{{ route('exportrekapitulasi')}}" class="btn btn-success">Export Data Excel</a></div>
+                                <div class="d-flex">
+                                    <div class="ms-3 mt-2"><a href="{{ route('exportrekapitulasi')}}" class="btn btn-success">Export data excel</a></div>
+                                    
+                                    <div class="ms-3 mt-2">
+                                        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0" method="GET" action="{{ route('dashboard') }}">
+                                            <div class="input-group">
+                                                <input class="form-control" type="text" name="search" placeholder="Search data..." 
+                                                    aria-label="Search for..." aria-describedby="btnNavbarSearch" 
+                                                    value="{{ request('search') }}" />
+                                                <button class="btn btn-primary" id="btnNavbarSearch" type="submit">
+                                                    <i class="fas fa-search"></i>
+                                                </button>
+                                                @if(request('search'))
+                                                    <a href="{{ route('dashboard') }}" class="btn btn-secondary ms-2">Reset</a>
+                                                @endif
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
                                 <div class="card-body">
+                                @if(request('search') && $rekapitulasi->isEmpty())
+                                    <div class="alert alert-info">Tidak ditemukan data yang sesuai dengan pencarian "{{ request('search') }}"</div>
+                                @else
                                 <div class="table-container mt-1">
                                     <table class="table table-bordered">
                                         <thead>
@@ -239,7 +262,15 @@
                                             @endforeach
                                         </tbody>
                                     </table>
-                                </div>
+                                    @if(request('search') && $rekapitulasi->hasPages())
+                                        <nav aria-label="Page navigation">
+                                            <div class="d-flex justify-content-center mt-4">
+                                                {{ $rekapitulasi->appends(['search' => request('search')])->links('pagination::bootstrap-5') }}
+                                            </div>
+                                        </nav>
+                                    @endif
+                                    </div>
+                                @endif
                                 </div>
                             </div>
                         </div>

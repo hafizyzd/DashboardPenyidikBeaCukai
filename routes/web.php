@@ -18,7 +18,6 @@ Route::get('/', function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [RekapitulasiController::class, 'index'])->name('dashboard');
-    // Rute-rute lain yang membutuhkan login
     Route::get('/exportrekapitulasi', [RekapitulasiController::class, 'rekapitulasiexport'])->name('exportrekapitulasi');
     Route::get('/upload', [RekapitulasiController::class, 'upload'])->name('upload');
     Route::post('/importrekapitulasi', [RekapitulasiController::class, 'rekapitulasiimportexcel'])->name('importrekapitulasi');
@@ -32,6 +31,3 @@ Route::middleware('auth')->group(function () {
         return view('Admin.dashboard');
     })->name('Admin.dashboard');
 });
-
-// Register
-// Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');

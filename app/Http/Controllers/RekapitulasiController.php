@@ -18,14 +18,52 @@ class RekapitulasiController extends Controller
         $this->middleware('auth');
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $rekapitulasi = Rekapitulasi::all();
+        $request->validate([
+            'search' => 'nullable|string|max:255'
+        ]);
+        
+        $search = $request->input('search');
+        
+        if ($search) {
+            $rekapitulasi = Rekapitulasi::where('kantor', 'like', "%$search%")
+                ->orWhere('sbp_no', 'like', "%$search%")
+                ->orWhere('lp_no', 'like', "%$search%")
+                ->orWhere('jenis_pelanggaran', 'like', "%$search%")
+                ->orWhere('split_no', 'like', "%$search%")
+                ->orWhere('nama_pelanggar', 'like', "%$search%")
+                ->orWhere('nik_npwp1', 'like', "%$search%")
+                ->orWhere('alternatif_penyelesaian_masalah', 'like', "%$search%")
+                ->orWhere('pasal_dilanggar', 'like', "%$search%")
+                ->orWhere('lk_no', 'like', "%$search%")
+                ->orWhere('sptp_no', 'like', "%$search%")
+                ->orWhere('spdp_no', 'like', "%$search%")
+                ->orWhere('nama_tsk', 'like', "%$search%")
+                ->orWhere('nik_npwp2', 'like', "%$search%")
+                ->orWhere('status_proses', 'like', "%$search%")
+                ->orWhere('perkiraan_nilai_barang', 'like', "%$search%")
+                ->orWhere('potensi_kehilangan_penerimaan_negara', 'like', "%$search%")
+                ->orWhere('nama_pengguna_jasa', 'like', "%$search%")
+                ->orWhere('npwp_pengguna_jasa', 'like', "%$search%")
+                ->orWhere('kode_komoditi', 'like', "%$search%")
+                ->orWhere('jenis', 'like', "%$search%")
+                ->orWhere('ba_pencacahan_no', 'like', "%$search%")
+                ->orWhere('kep_bdn_no', 'like', "%$search%")
+                ->orWhere('kep_bmn_no', 'like', "%$search%")
+                ->orWhere('tap_sita_no', 'like', "%$search%")
+                ->orWhere('status', 'like', "%$search%")
+                ->paginate(30);
+        } else {
+            $rekapitulasi = Rekapitulasi::all();
+        }
+
+        // $rekapitulasi = Rekapitulasi::all();
         $totalPotensiKerugian = Rekapitulasi::sum('potensi_kehilangan_penerimaan_negara');
         $jumlahTersangka = Rekapitulasi::whereNotIn('nama_pelanggar', ['Tidak dikenal','tidak dikenal', '-'])->count();
         $statusProses = Rekapitulasi::whereNotIn('status_proses', [' ', '-'])->count();
 
-        return view('Admin.dashboard', compact('rekapitulasi', 'totalPotensiKerugian', 'jumlahTersangka','statusProses','rekapitulasi'));
+        return view('Admin.dashboard', compact('rekapitulasi', 'totalPotensiKerugian', 'jumlahTersangka','statusProses','search'));
     }
 
     public function rekapitulasiexport(){

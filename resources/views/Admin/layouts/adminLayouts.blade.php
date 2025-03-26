@@ -73,4 +73,49 @@
     
 
     </style>
+    <style>
+    /* Custom Pagination for Bootstrap 5.3.3 */
+    .pagination {
+        --bs-pagination-padding-x: 1.2rem;
+        --bs-pagination-padding-y: 0.6rem;
+        --bs-pagination-font-size: 1rem;
+        --bs-pagination-color: var(--bs-primary);
+        --bs-pagination-bg: #fff;
+        --bs-pagination-border-width: 1px;
+        --bs-pagination-border-color: #dee2e6;
+        --bs-pagination-border-radius: 0.5rem;
+        --bs-pagination-hover-color: var(--bs-primary);
+        --bs-pagination-hover-bg: #e9ecef;
+        --bs-pagination-hover-border-color: #dee2e6;
+        --bs-pagination-focus-color: var(--bs-primary);
+        --bs-pagination-focus-bg: #e9ecef;
+        --bs-pagination-focus-box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+        --bs-pagination-active-color: #fff;
+        --bs-pagination-active-bg: var(--bs-primary);
+        --bs-pagination-active-border-color: var(--bs-primary);
+        --bs-pagination-disabled-color: #6c757d;
+        --bs-pagination-disabled-bg: #fff;
+        --bs-pagination-disabled-border-color: #dee2e6;
+        display: flex;
+        justify-content: center;
+        margin-top: 2rem;
+    }
+
+    .page-item:not(:first-child) .page-link {
+        margin-left: 0.5rem;
+    }
+
+    .page-item:first-child .page-link,
+    .page-item:last-child .page-link {
+        border-radius: 0.5rem;
+    }
+
+    .page-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 2.5rem;
+        height: 2.5rem;
+    }
+</style>
 </html>
