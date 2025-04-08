@@ -1,14 +1,12 @@
 @extends('Admin.layouts.adminLayouts')
 @section('containAdminSys')
-        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark fixed-top">
-            <!-- Navbar Brand--> 
+        <nav class="sb-topnav navbar navbar-expand fixed-top" style="background-color:#D4C9BE">
             <a class="navbar-brand ps-3" href="">CIIS</a>
-            <!-- Sidebar Toggle--> 
-            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+            <button class="btn btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
                 <div class="input-group">
                     <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
-                    <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+                    <button class="btn" style="background-color:#F1EFEC" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
                 </div>
             </form>
             <!-- Navbar-->
@@ -17,7 +15,7 @@
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="{{ route('loginuser') }}">Login</a></li>
-                        <li><hr class="dropdown-divider" /></li>
+                        <li><hr class="dropdown-divider"/></li>
                         <li>
                             <form action="{{ route('logout') }}" method="POST">
                                 @csrf
@@ -30,36 +28,34 @@
         </nav>
         <!-- sidebar -->
         <div class="row" style="height: 100vh;">
-            <div class="col-2" style="margin: top 100px;">
-                <!-- Sidebar -->
-                <div id="layoutSidenav_nav">
-                    <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+            <div class="col-2" style="margin: top 100px;" >
+                <div id="layoutSidenav_nav" style="background-color:#EAEAEA">
+                    <nav class="sb-sidenav accordion" id="sidenavAccordion" >
                         <div class="sb-sidenav-menu" style="margin-top: 60px">
                             <div class="nav">
-                                <div class="side-nav-heading m-1"><p style="text-transform: uppercase;color: #f8f9fa">Custom Investigation Integration System</p></div>
-                                <a class="nav-link" href="#">
+                                <div class="side-nav-heading m-1"><p style="text-transform: uppercase;color: #000000">Custom Investigation Integration System</p></div>
+                                <a class="nav-link" href="#" style="background-color:#EAEAEA" >
                                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                    Dashboard
+                                    <p style="color:#000000">Dashboard</p>
                                 </a>   
-                                <!-- Pelaporan Item with Nested Links below -->
-                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts" style="background-color:#EAEAEA">
                                     <div class="sb-nav-link-icon"><span class="material-symbols-outlined">lab_profile</span></div>
-                                    Pelaporan
+                                    <p style="color:#000000">Pelaporan</p>
                                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                                 </a>
                                 <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                    <nav class="sb-sidenav-menu-nested nav">
-                                        <a class="nav-link" href="{{ route('upload') }}">Kirim Data Laporan</a>
+                                    <nav class="sb-sidenav-menu-nested nav" style="background-color:#EAEAEA">
+                                        <a class="nav-link" href="{{ route('upload') }}"><p style="color:#000000">Kirim Data Laporan</p></a>
                                     </nav>
                                 </div>
                             </div>
                         </div>
-                        <div class="sb-sidenav-footer">
-                            <div class="small">Logged in as:</div>
+                        <div class="sb-sidenav-footer" style="background-color:#D4C9BE">
+                            <div class="small" style="color:#000000">Logged in as:</div>
                             @if (Auth::check())
-                                <p class="mb-0 fw-bold text-3xl text-white">{{ Auth::user()->name }}</p>
+                                <p class="mb-0 fw-bold text-3xl text-dark">{{ Auth::user()->name }}</p>
                             @endif
-                            <p class="mb-11" style="font-size:12px">Subdirektorat Penindakan dan Penyidikan</p>
+                            <p class="mb-11" style="font-size:12px ;color:#000000">Subdirektorat Penindakan dan Penyidikan</p>
                         </div>
                     </nav>
                 </div>
@@ -76,7 +72,7 @@
                             </ol>
                             <div class="row">
                                 <div class="col-xl-3 col-md-6">
-                                    <div class="card bg-primary text-white mb-4 text-center">
+                                    <div class="card text-white mb-4 text-center" style="background-color:#27548A">
                                         <div class="card-body">Jumlah Penyidik</div>
                                         <div> <h3>1440</h3> </div>
                                         <div class="card-footer d-flex align-items-center justify-content-between">
@@ -86,7 +82,7 @@
                                     </div>
                                 </div>
                                 <div class="col-xl-3 col-md-6">
-                                    <div class="card bg-warning text-white mb-4 text-center">
+                                    <div class="card text-white mb-4 text-center" style="background-color:#FCB454">
                                         <div class="card-body">Dalam Proses Penyidikan</div>
                                         <div>
                                             <h3>{{$statusProses}}</h3>
@@ -98,7 +94,7 @@
                                     </div>
                                 </div>
                                 <div class="col-xl-3 col-md-6">
-                                    <div class="card bg-warning text-white mb-4 text-center">
+                                    <div class="card text-white mb-4 text-center" style="background-color:#67AE6E">
                                         <div class="card-body">Potensi Kerugian Negara</div>
                                             <div>
                                                 <h3>{{ formatRupiah($totalPotensiKerugian) }}</h3>
@@ -110,7 +106,7 @@
                                     </div>
                                 </div>
                                 <div class="col-xl-3 col-md-6">
-                                    <div class="card bg-danger text-white mb-4 text-center">
+                                    <div class="card text-white mb-4 text-center" style="background-color:#A62C2C">
                                         <div class="card-body">Tersangka</div>
                                         <div>
                                             <h3>{{ $jumlahTersangka }}</h3>
