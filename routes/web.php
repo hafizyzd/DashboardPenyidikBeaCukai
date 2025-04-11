@@ -6,9 +6,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 
 // dashboard
-Route::get('/', function () {
-    return redirect()->route('loginuser');
-});
+Route::get('/', function () {return redirect()->route('loginuser');});
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [RekapitulasiController::class, 'index'])->name('dashboard');

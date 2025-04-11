@@ -1,11 +1,10 @@
-/* Hide sidebar on small screens */
+
 @media (max-width: 991px) {
     #layoutSidenav_nav {
         display: none !important;
     }
 }
 
-/* Show sidebar on large screens */
 @media (min-width: 992px) {
     #layoutSidenav_nav {
         display: block !important;

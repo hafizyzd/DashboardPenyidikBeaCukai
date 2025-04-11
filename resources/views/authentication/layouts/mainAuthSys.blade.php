@@ -18,13 +18,13 @@
             height: 100%;
         }
         body {
-            background-image: url('{{ asset('assets/img/djbc.jpg') }}'); /* Pastikan path benar */
-            background-size: cover; /* Gambar menutupi seluruh layar */
-            background-position: center; /* Posisi gambar di tengah */
-            background-repeat: no-repeat; /* Gambar tidak diulang */
+            background-image: url('{{ asset('assets/img/djbc.jpg') }}'); 
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat; 
         }
         .overlay {
-            background-color: rgba(255, 255, 255, 0.8); /* Warna putih dengan transparansi */
+            background-color: rgba(255, 255, 255, 0.8);
             padding: 20px;
             border-radius: 10px;
         }
