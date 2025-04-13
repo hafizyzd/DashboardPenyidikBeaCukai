@@ -1,64 +1,9 @@
 @extends('Admin.layouts.adminLayouts')
 @section('containAdminSys')
-        <nav class="sb-topnav navbar navbar-expand fixed-top" style="background-color:#D4C9BE">
-            <a class="navbar-brand ps-3" href="">CIIS</a>
-            <button class="btn btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
-            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
-                <div class="input-group">
-                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
-                    <button class="btn" style="background-color:#F1EFEC" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
-                </div>
-            </form>
-            <!-- Navbar-->
-            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-                <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="background-color:#D4C9BE"><i class="fas fa-user fa-fw"></i></a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="{{ route('loginuser') }}">Login</a></li>
-                        <li><hr class="dropdown-divider"/></li>
-                        <li>
-                            <form action="{{ route('logout') }}" method="POST">
-                                @csrf
-                                <button type="submit" class="dropdown-item">Logout</button>
-                            </form>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
         <!-- sidebar -->
         <div class="row" style="height: 100vh;">
             <div class="col-2" style="margin: top 100px;" >
-                <div id="layoutSidenav_nav" style="background-color:#EAEAEA">
-                    <nav class="sb-sidenav accordion" id="sidenavAccordion" >
-                        <div class="sb-sidenav-menu" style="margin-top: 60px">
-                            <div class="nav">
-                                <div class="side-nav-heading m-1"><p style="text-transform: uppercase;color: #000000">Custom Investigation Integration System</p></div>
-                                <a class="nav-link" href="#" style="background-color:#EAEAEA" >
-                                    <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                    <p style="color:#000000">Dashboard</p>
-                                </a>   
-                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts" style="background-color:#EAEAEA">
-                                    <div class="sb-nav-link-icon"><span class="material-symbols-outlined">lab_profile</span></div>
-                                    <p style="color:#000000">Pelaporan</p>
-                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                </a>
-                                <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion" >
-                                    <nav class="sb-sidenav-menu-nested nav" >
-                                        <a class="nav-link" href="{{ route('upload') }}"><p style="color:#000000">Kirim Data Laporan</p></a>
-                                    </nav>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="sb-sidenav-footer" style="background-color:#D4C9BE">
-                            <div class="small" style="color:#000000">Logged in as:</div>
-                            @if (Auth::check())
-                                <p class="mb-0 fw-bold text-3xl text-dark">{{ Auth::user()->name }}</p>
-                            @endif
-                            <p class="mb-11" style="font-size:12px ;color:#000000">Subdirektorat Penindakan dan Penyidikan</p>
-                        </div>
-                    </nav>
-                </div>
+                @include('Admin.partials.sidebaradmin')
             </div>
 
             <!-- content -->
@@ -72,7 +17,7 @@
                             </ol>
                             <div class="row">
                                 <div class="col-xl-3 col-md-6">
-                                    <div class="card text-white mb-4 text-center" style="background-color:#27548A">
+                                    <div class="card text-white mb-4 text-center hover-effect shadow" style="background-color:#27548A">
                                         <div class="card-body">Jumlah Penyidik</div>
                                         <div> <h3>1440</h3> </div>
                                         <div class="card-footer d-flex align-items-center justify-content-between">
@@ -82,7 +27,7 @@
                                     </div>
                                 </div>
                                 <div class="col-xl-3 col-md-6">
-                                    <div class="card text-white mb-4 text-center" style="background-color:#FCB454">
+                                    <div class="card text-white mb-4 text-center hover-effect shadow" style="background-color:#FCB454">
                                         <div class="card-body">Dalam Proses Penyidikan</div>
                                         <div>
                                             <h3>{{$statusProses}}</h3>
@@ -94,7 +39,7 @@
                                     </div>
                                 </div>
                                 <div class="col-xl-3 col-md-6">
-                                    <div class="card text-white mb-4 text-center" style="background-color:#67AE6E">
+                                    <div class="card text-white mb-4 text-center hover-effect shadow" style="background-color:#67AE6E">
                                         <div class="card-body">Potensi Kerugian Negara</div>
                                             <div>
                                                 <h3>{{ formatRupiah($totalPotensiKerugian) }}</h3>
@@ -106,7 +51,7 @@
                                     </div>
                                 </div>
                                 <div class="col-xl-3 col-md-6">
-                                    <div class="card text-white mb-4 text-center" style="background-color:#A62C2C">
+                                    <div class="card text-white mb-4 text-center hover-effect shadow" style="background-color:#A62C2C">
                                         <div class="card-body">Tersangka</div>
                                         <div>
                                             <h3>{{ $jumlahTersangka }}</h3>
@@ -118,9 +63,10 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="row">
                                 <div class="col-xl-6">
-                                    <div class="card mb-4">
+                                    <div class="card mb-4 hover-effect shadow">
                                         <div class="card-header">
                                             <i class="fas fa-chart-pie me-1"></i>
                                             Tindak Pidana
@@ -129,7 +75,7 @@
                                     </div>
                                 </div>
                                 <div class="col-xl-6">
-                                    <div class="card mb-4">
+                                    <div class="card mb-4 hover-effect shadow">
                                         <div class="card-header">
                                             <i class="fas fa-chart-bar me-1"></i>
                                             Jumlah PDP
@@ -140,7 +86,7 @@
                             </div>
 
                             
-                            <div class="card mb-4" style="height: 85vh; display: flex; flex-direction: column;"" >
+                            <div class="card mb-4 hover-effect-1 shadow" style="height: 85vh; display: flex; flex-direction: column;"" >
                                 <div class="card-header thick">
                                     <i class="fas fa-table me-1"></i>
                                     Rekapitulasi Penyidikan
@@ -295,5 +241,24 @@
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
         <script src="{{ asset('assets/js/scripts.js') }}"></script>
         <script src="{{ asset('assets/js/datatables-simple-demo.js') }}"></script>
+        <style>
+            .hover-effect {
+                transition: all 0.3s ease;
+            }
+
+            .hover-effect:hover {
+                transform: scale(1.05);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+
+            .hover-effect-1 {
+                transition: all 0.3s ease;
+            }
+
+            .hover-effect-1:hover {
+                transform: scale(1.01);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+        </style>
     </body>
 @endsection

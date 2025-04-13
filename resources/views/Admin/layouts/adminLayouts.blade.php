@@ -18,6 +18,7 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=lab_profile" />
     </head>
     <body class="sb-nav-fixed">
+        @include('Admin.partials.navadmin')
         @yield('containAdminSys')
     </body>
     <script>
