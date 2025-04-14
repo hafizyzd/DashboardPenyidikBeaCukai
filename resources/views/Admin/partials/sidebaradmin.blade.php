@@ -6,17 +6,17 @@
                     <p style="text-transform: uppercase; color: #000000; font-weight: 600;">Custom Investigation Integration System</p>
                 </div>
                 <a class="nav-link" href="{{ route('dashboard') }}" style="background-color:#EAEAEA">
-                    <div class="d-flex align-items-center" style="height: 50px;">  <!-- Set height for proper vertical alignment -->
+                    <div class="d-flex align-items-center" style="height: 30px;">  <!-- Set height for proper vertical alignment -->
                         <div class="sb-nav-link-icon">
-                            <i class="fas fa-tachometer-alt"></i>
+                        <span class="material-symbols-outlined">team_dashboard</span>
                         </div>
                         <p style="color:#000000; margin-left: 10px; margin-bottom: 0;">Dashboard</p> <!-- Remove bottom margin of text -->
                     </div>
                 </a>  
                 <a class="nav-link" href="{{ route('upload') }}" style="background-color:#EAEAEA">
-                    <div class="d-flex align-items-center" style="height: 50px;">
+                    <div class="d-flex align-items-center" style="height: 30px;">
                         <div class="sb-nav-link-icon">
-                            <span class="material-symbols-outlined">lab_profile</span>
+                        <span class="material-symbols-outlined">upload_file</span>
                         </div>
                         <p style="color:#000000; margin-left: 10px; margin-bottom: 0;">Kirim Data Laporan</p>
                     </div>

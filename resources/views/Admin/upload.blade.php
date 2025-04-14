@@ -5,12 +5,11 @@
     <div class="col-2" style="margin: top 100px;">
         @include('Admin.partials.sidebaradmin')
     </div>
-
     <!-- content -->
     <div class="col-10">
         <div id="layoutSidenav_content" class="d-flex flex-column" style="min-height: 100vh;">
             <main class="flex-grow-1">
-                <div class="card w-75 mb-3 mx-auto" style="margin-top: 100px;">
+                <div class="card w-75 mb-3 mx-auto shadow" style="margin-top: 100px;">
                     <div class="card-header">
                         Upload File Rekapitulasi
                     </div>
@@ -40,18 +39,7 @@
                     </div>
                 </div>
             </main>
-            <footer class="py-4 bg-light mt-auto">
-                <div class="container-fluid px-4">
-                    <div class="d-flex align-items-center justify-content-between small">
-                        <div class="text-muted">Copyright &copy; Subdirektorat Penyidikan Bea Cukai 2025</div>
-                        <div>
-                            <a href="#">Privacy Policy</a>
-                            &middot;
-                            <a href="#">Terms &amp; Conditions</a>
-                        </div>
-                    </div>
-                </div>
-            </footer>
+            @include('Admin.partials.footeradmin')
         </div>
     </div>
 

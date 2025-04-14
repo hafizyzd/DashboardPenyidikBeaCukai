@@ -1,5 +1,5 @@
 <nav class="sb-topnav navbar navbar-expand fixed-top" style="background-color:#123458">
-    <img>
+    <img src="{{ asset('assets/img/Lambang_Bc.png') }}" alt="Logo" style="height: 40px; padding-right: 2px; padding-left: 8px">
     <a class="navbar-brand ps-3" style="color:#ffffff">CIIS</a>
     <button class="btn btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!" style="color:#ffffff"><i class="fas fa-bars"></i></button>
     <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
