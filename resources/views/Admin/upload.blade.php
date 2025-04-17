@@ -20,7 +20,7 @@
                             <label for="excelFile" class="form-label">Choose File</label>
                             <input class="form-control" type="file" id="file" name="file" accept=".xlsx, .xls, .csv" required>
                         </div>
-                        <button type="submit" class="btn btn-primary m-3">Upload</button>
+                        <button type="submit" style="background-color:#123458" class="btn m-3 text-white">Upload</button>
                     </form>
                     <div>
                         @if($message = Session::get('success'))
@@ -35,15 +35,13 @@
                     </div>
 
                     <div class="card-footer">
-                        <button type="button" class="btn btn-info mx-auto text-white">Download Template Excel Disini</button>
+                        <button type="button" style="background-color:#78B3CE" class="btn mx-auto text-white">Download Template Excel</button>
                     </div>
                 </div>
             </main>
             @include('Admin.partials.footeradmin')
         </div>
     </div>
-
-
 </div>
          
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>

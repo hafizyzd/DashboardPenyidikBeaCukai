@@ -86,14 +86,14 @@
                             </div>
 
                             
-                            <div class="card mb-4 hover-effect-1 shadow" style="height: 85vh; display: flex; flex-direction: column;"" >
+                            <div class="card mb-4 hover-effect-1 shadow" style="display: flex; flex-direction: column; height: 700px;">
                                 <div class="card-header thick">
                                     <i class="fas fa-table me-1"></i>
                                     Rekapitulasi Penyidikan
                                 </div>
-                                <div class="d-flex">
-                                    <div class="ms-3 mt-2"><a href="{{ route('exportrekapitulasi')}}" class="btn btn-success">Export data excel</a></div>
-                                    <div class="ms-3 mt-2">
+                                <div class="d-flex p-2">
+                                    <div class="ms-3"><a href="{{ route('exportrekapitulasi')}}" class="btn btn-success">Export data excel</a></div>
+                                    <div class="ms-3">
                                         <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0" method="GET" action="{{ route('dashboard') }}">
                                             <div class="input-group">
                                                 <input class="form-control" type="text" name="search" placeholder="Search data..." 
@@ -109,12 +109,13 @@
                                         </form>
                                     </div>
                                 </div>
-                                <div class="card-body">
+
+                                <div class="card-body" style="flex-grow: 1; padding-bottom: 0; display: flex; flex-direction: column;">
                                 @if(request('search') && $rekapitulasi->isEmpty())
                                     <div class="alert alert-info">Tidak ditemukan data yang sesuai dengan pencarian "{{ request('search') }}"</div>
                                 @else
-                                <div class="table-container mt-1 mb-0" style="height: 100vh;">
-                                    <table class="table table-bordered tableFixHead">
+                                <div class="table-container" style="flex-grow: 1; overflow-y: auto; min-height: 0;">
+                                    <table class="table table-bordered tableFixHead" >
                                         <thead>
                                             <tr class="text-center">
                                                 <th>No</th>
