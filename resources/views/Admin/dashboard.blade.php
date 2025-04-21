@@ -1,6 +1,6 @@
 @extends('Admin.layouts.adminLayouts')
 @section('containAdminSys')
-        <div class="row" style="height: 100vh;">
+        <div class="row" class="col-2 collapse" style="height: 100vh;">
             <div class="col-2" style="margin: top 100px;" >
                 @include('Admin.partials.sidebaradmin')
             </div>
@@ -228,31 +228,6 @@
             </div>
          </div>
          
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-        <script src="assets/demo/chart-bar-demo.js"></script>
-        <script src="assets/demo/chart-pie-demo.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
-        <script src="{{ asset('assets/js/scripts.js') }}"></script>
-        <script src="{{ asset('assets/js/datatables-simple-demo.js') }}"></script>
-        <style>
-            .hover-effect {
-                transition: all 0.3s ease;
-            }
 
-            .hover-effect:hover {
-                transform: scale(1.05);
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            }
-
-            .hover-effect-1 {
-                transition: all 0.3s ease;
-            }
-
-            .hover-effect-1:hover {
-                transform: scale(1.01);
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            }
-        </style>
     </body>
 @endsection
