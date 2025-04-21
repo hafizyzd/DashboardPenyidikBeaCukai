@@ -119,6 +119,13 @@ class RekapitulasiController extends Controller
 
     public function destroy(string $id)
     {
-        //
+        // Find the Rekapitulasi by ID
+        $rekapitulasi = Rekapitulasi::findOrFail($id);
+
+        // Delete the record
+        $rekapitulasi->delete();
+
+        // Redirect back to the dashboard with a success message
+        return redirect()->route('dashboard')->with('success', 'Data berhasil dihapus');
     }
 }

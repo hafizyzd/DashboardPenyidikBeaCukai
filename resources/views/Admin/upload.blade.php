@@ -10,7 +10,7 @@
         <div id="layoutSidenav_content" class="d-flex flex-column" style="min-height: 100vh;">
             <main class="flex-grow-1">
                 <div class="card w-75 mb-3 mx-auto shadow" style="margin-top: 100px;">
-                    <div class="card-header">
+                    <div class="card-header thick">
                         Upload File Rekapitulasi
                     </div>
 

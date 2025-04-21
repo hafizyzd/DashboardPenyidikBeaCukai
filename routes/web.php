@@ -15,6 +15,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/importrekapitulasi', [RekapitulasiController::class, 'rekapitulasiimportexcel'])->name('importrekapitulasi');
 });
 
+Route::delete('/dashboard/{id}', [RekapitulasiController::class, 'destroy'])->name('rekapitulasi.destroy');
+
 // Login
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('loginuser');
 Route::post('/login', [LoginController::class, 'loginProsess'])->name('loginProsess');

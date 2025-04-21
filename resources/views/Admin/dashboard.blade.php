@@ -1,12 +1,9 @@
 @extends('Admin.layouts.adminLayouts')
 @section('containAdminSys')
-        <!-- sidebar -->
         <div class="row" style="height: 100vh;">
             <div class="col-2" style="margin: top 100px;" >
                 @include('Admin.partials.sidebaradmin')
             </div>
-
-            <!-- content -->
             <div class="col-10">
                 <div id="layoutSidenav_content">
                     <main>
@@ -86,7 +83,7 @@
                             </div>
 
                             
-                            <div class="card mb-4 hover-effect-1 shadow" style="display: flex; flex-direction: column; height: 700px;">
+                            <div class="card mb-4 hover-effect-1 shadow" style="display: flex; flex-direction: column; height: 550px;">
                                 <div class="card-header thick">
                                     <i class="fas fa-table me-1"></i>
                                     Rekapitulasi Penyidikan
@@ -114,8 +111,8 @@
                                 @if(request('search') && $rekapitulasi->isEmpty())
                                     <div class="alert alert-info">Tidak ditemukan data yang sesuai dengan pencarian "{{ request('search') }}"</div>
                                 @else
-                                <div class="table-container" style="flex-grow: 1; overflow-y: auto; min-height: 0;">
-                                    <table class="table table-bordered tableFixHead" >
+                                <div class="table-container">
+                                    <table class="table table-sm table-bordered table-hover tableFixHead" >
                                         <thead>
                                             <tr class="text-center">
                                                 <th>No</th>
@@ -157,6 +154,7 @@
                                                 <th>Tap Sita Tanggal</th>
                                                 <th>Status</th>
                                                 <th>Proses</th>
+                                                <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -201,6 +199,13 @@
                                                     <td>{{ $item->tap_sita_tgl }}</td>
                                                     <td>{{ $item->status }}</td>
                                                     <td>{{ $item->proses }}</td>
+                                                    <td class="text-center">    
+                                                        <form action="{{ route('rekapitulasi.destroy', $item->id) }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus data ini?')">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                                        </form>
+                                                    </td>
                                                 </tr>
                                             @endforeach
                                         </tbody>
