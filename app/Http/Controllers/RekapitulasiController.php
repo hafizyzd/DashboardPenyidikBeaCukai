@@ -58,7 +58,6 @@ class RekapitulasiController extends Controller
             $rekapitulasi = Rekapitulasi::all();
         }
 
-        // $rekapitulasi = Rekapitulasi::all();
         $totalPotensiKerugian = Rekapitulasi::sum('potensi_kehilangan_penerimaan_negara');
         $jumlahTersangka = Rekapitulasi::whereNotIn('nama_pelanggar', ['Tidak dikenal','tidak dikenal', '-'])->count();
         $statusProses = Rekapitulasi::whereNotIn('status_proses', [' ', '-'])->count();
@@ -107,13 +106,98 @@ class RekapitulasiController extends Controller
 
     public function edit(string $id)
     {
-        //
+	    $rekapitulasi = Rekapitulasi::findOrFail($id);
+    	return view('Admin.editData',compact('rekapitulasi'));
     }
 
 
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'kantor' => 'required|string|max:200',
+            'sbp_no' => 'required|string|max:150',
+            'sbp_tgl' => 'required|date',
+            'lp_no' => 'required|string|max:150',
+            'lp_tgl' => 'required|date',
+            'split_no' => 'required|string|max:150',
+            'split_tgl' => 'required|date',
+            'jenis_pelanggaran' => 'required|string|max:200',
+            'nama_pelanggar' => 'required|string|max:255',
+            'nik_npwp1' => 'required|string|max:250',
+            'alternatif_penyelesaian_masalah' => 'required|string|max:250',
+            'pasal_dilanggar' => 'required|longText',
+            'lk_no' => 'required|string|max:200',
+            'sptp_no' => 'required|string|max:200',
+            'sptp_tgl' => 'required|date',
+            'spdp_no' => 'required|string|max:200',
+            'spdp_tgl' => 'required|date',
+            'nama_tsk' => 'required|string|max:255',
+            'nik_npwp2' => 'nullable|string|max:255',
+            'status_proses' => 'nullable|string|max:100',
+            'perkiraan_nilai_barang' => 'nullable|numeric',
+            'potensi_kehilangan_penerimaan_negara' => 'nullable|numeric',
+            'nama_pengguna_jasa' => 'nullable|string|max:255',
+            'npwp_pengguna_jasa' => 'nullable|string|max:200',
+            'kode_komoditi' => 'nullable|string|max:100',
+            'jenis' => 'nullable|longText',
+            'jumlah' => 'nullable|numeric',
+            'satuan' => 'nullable|string|max:50',
+            'ba_pencacahan_no' => 'nullable|string|max:150',
+            'ba_pencacahan_tgl' => 'nullable|date',
+            'kep_bdn_no' => 'nullable|string|max:150',
+            'kep_bdn_tgl' => 'nullable|date',
+            'kep_bmn_no' => 'nullable|string|max:150',
+            'kep_bmn_tgl' => 'nullable|date',
+            'tap_sita_no' => 'nullable|string|max:150',
+            'tap_sita_tgl' => 'nullable|date',
+            'status' => 'nullable|string|max:100',
+            'proses' => 'nullable|string|max:100',
+        ]);
+    
+        $rekapitulasi = Rekapitulasi::findOrFail($request->id);
+    
+        $rekapitulasi->update([
+            'kantor' => $request->kantor,
+            'sbp_no' => $request->sbp_no,
+            'sbp_tgl' => $request->sbp_tgl,
+            'lp_no' => $request->lp_no,
+            'lp_tgl' => $request->lp_tgl,
+            'split_no' => $request->split_no,
+            'split_tgl' => $request->split_tgl,
+            'jenis_pelanggaran' => $request->jenis_pelanggaran,
+            'nama_pelanggar' => $request->nama_pelanggar,
+            'nik_npwp1' => $request->nik_npwp1,
+            'alternatif_penyelesaian_masalah' => $request->alternatif_penyelesaian_masalah,
+            'pasal_dilanggar' => $request->pasal_dilanggar,
+            'lk_no' => $request->lk_no,
+            'sptp_no' => $request->sptp_no,
+            'sptp_tgl' => $request->sptp_tgl,
+            'spdp_no' => $request->spdp_no,
+            'spdp_tgl' => $request->spdp_tgl,
+            'nama_tsk' => $request->nama_tsk,
+            'nik_npwp2' => $request->nik_npwp2,
+            'status_proses' => $request->status_proses,
+            'perkiraan_nilai_barang' => $request->perkiraan_nilai_barang,
+            'potensi_kehilangan_penerimaan_negara' => $request->potensi_kehilangan_penerimaan_negara,
+            'nama_pengguna_jasa' => $request->nama_pengguna_jasa,
+            'npwp_pengguna_jasa' => $request->npwp_pengguna_jasa,
+            'kode_komoditi' => $request->kode_komoditi,
+            'jenis' => $request->jenis,
+            'jumlah' => $request->jumlah,
+            'satuan' => $request->satuan,
+            'ba_pencacahan_no' => $request->ba_pencacahan_no,
+            'ba_pencacahan_tgl' => $request->ba_pencacahan_tgl,
+            'kep_bdn_no' => $request->kep_bdn_no,
+            'kep_bdn_tgl' => $request->kep_bdn_tgl,
+            'kep_bmn_no' => $request->kep_bmn_no,
+            'kep_bmn_tgl' => $request->kep_bmn_tgl,
+            'tap_sita_no' => $request->tap_sita_no,
+            'tap_sita_tgl' => $request->tap_sita_tgl,
+            'status' => $request->status,
+            'proses' => $request->proses,
+        ]);
+    
+        return redirect()->route('dashboard')->with('success', 'Data berhasil diperbarui');
     }
 
 

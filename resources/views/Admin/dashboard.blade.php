@@ -39,7 +39,7 @@
                                     <div class="card text-white mb-4 text-center hover-effect shadow" style="background-color:#67AE6E">
                                         <div class="card-body">Potensi Kerugian Negara</div>
                                             <div>
-                                                <h3>{{ formatRupiah($totalPotensiKerugian) }}</h3>
+                                                <h3>{{ formatRupiah($totalPotensiKerugian)}}</h3>
                                             </div>
                                             <div class="card-footer d-flex align-items-center justify-content-between">
                                                 <a class="small text-white stretched-link" href="#">View Details</a>
@@ -203,8 +203,9 @@
                                                         <form action="{{ route('rekapitulasi.destroy', $item->id) }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus data ini?')">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                                        <button type="submit" class=" btn btn-sm m-1 text-white" style="background-color:#FF6363">Delete</button>
                                                         </form>
+                                                        <a href="{{ route('rekapitulasi.edit', $item->id) }}" class="btn btn-sm text-white m-1" style="width: 55px; background-color:#FFA55D">Edit</a>
                                                     </td>
                                                 </tr>
                                             @endforeach

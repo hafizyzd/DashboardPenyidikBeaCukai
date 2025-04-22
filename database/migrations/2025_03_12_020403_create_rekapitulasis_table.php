@@ -12,11 +12,11 @@ return new class extends Migration
             $table->id();
             $table->string('kantor', 200)->nullable();
             $table->string('sbp_no',150)->nullable();
-            $table->date('sbp_tgl')->nullable();  // Menjadikan nullable
+            $table->date('sbp_tgl')->nullable();  
             $table->string('lp_no', 150)->nullable();
-            $table->date('lp_tgl')->nullable();  // Menjadikan nullable
+            $table->date('lp_tgl')->nullable();  
             $table->string('split_no', 150)->nullable();
-            $table->date('split_tgl')->nullable();  // Menjadikan nullable
+            $table->date('split_tgl')->nullable();  
             $table->string('jenis_pelanggaran', 200)->nullable();
             $table->string('nama_pelanggar', 255)->nullable();
             $table->string('nik_npwp1', 250)->nullable();
@@ -24,9 +24,9 @@ return new class extends Migration
             $table->longText('pasal_dilanggar')->nullable();
             $table->string('lk_no', 200)->nullable();
             $table->string('sptp_no', 200)->nullable();
-            $table->string('sptp_tgl',100)->nullable();  // Menjadikan nullable
+            $table->string('sptp_tgl',100)->nullable();  
             $table->string('spdp_no', 200)->nullable();
-            $table->string('spdp_tgl',100)->nullable();  // Menjadikan nullable
+            $table->string('spdp_tgl',100)->nullable();  
             $table->string('nama_tsk', 255)->nullable();
             $table->string('nik_npwp2', 255)->nullable();
             $table->string('status_proses', 100)->nullable();
@@ -39,13 +39,13 @@ return new class extends Migration
             $table->float('jumlah', 8, 2)->nullable();
             $table->string('satuan',50)->nullable();
             $table->string('ba_pencacahan_no', 150)->nullable();
-            $table->date('ba_pencacahan_tgl')->nullable();  // Menjadikan nullable
+            $table->date('ba_pencacahan_tgl')->nullable();  
             $table->string('kep_bdn_no', 150)->nullable();
-            $table->date('kep_bdn_tgl')->nullable();  // Menjadikan nullable
+            $table->date('kep_bdn_tgl')->nullable();  
             $table->string('kep_bmn_no', 150)->nullable();
-            $table->date('kep_bmn_tgl')->nullable();  // Menjadikan nullable
+            $table->date('kep_bmn_tgl')->nullable();  
             $table->string('tap_sita_no', 150)->nullable();
-            $table->date('tap_sita_tgl')->nullable();  // Menjadikan nullable
+            $table->date('tap_sita_tgl')->nullable();  
             $table->string('status', 100)->nullable();
             $table->string('proses', 100)->nullable();
             $table->timestamps();

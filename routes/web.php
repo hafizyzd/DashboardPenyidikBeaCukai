@@ -13,9 +13,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/exportrekapitulasi', [RekapitulasiController::class, 'rekapitulasiexport'])->name('exportrekapitulasi');
     Route::get('/upload', [RekapitulasiController::class, 'upload'])->name('upload');
     Route::post('/importrekapitulasi', [RekapitulasiController::class, 'rekapitulasiimportexcel'])->name('importrekapitulasi');
+    Route::delete('/dashboard/{id}', [RekapitulasiController::class, 'destroy'])->name('rekapitulasi.destroy');
+    Route::get('/editData/{id}', [RekapitulasiController::class, 'edit'])->name('rekapitulasi.edit');
+    Route::put('/update', [RekapitulasiController::class, 'update'])->name('rekapitulasi.update');
 });
 
-Route::delete('/dashboard/{id}', [RekapitulasiController::class, 'destroy'])->name('rekapitulasi.destroy');
+
 
 // Login
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('loginuser');

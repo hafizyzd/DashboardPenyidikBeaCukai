@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Rekapitulasi extends Model
 {
-    protected $table = 'rekapitulasis'; // Nama tabel yang sesuai
+    protected $table = 'rekapitulasis';
     protected $primaryKey = "id";
     protected $fillable = [
         'kantor', 'sbp_no', 'sbp_tgl', 'lp_no', 'lp_tgl', 'split_no', 'split_tgl', 'jenis_pelanggaran', 
