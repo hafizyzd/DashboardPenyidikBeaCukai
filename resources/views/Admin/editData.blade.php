@@ -31,11 +31,11 @@
                                 <input type="date" class="form-control" required="required" name="sbp_tgl" value="{{ \Carbon\Carbon::parse($rekapitulasi->sbp_tgl)->format('Y-m-d') }}">
                             </div>
                             <div class="mb-3">
-                                <label for="lp_no" class="form-label">LP No</label>
+                                <label for="lp_no" class="form-label">LP/LP1 No</label>
                                 <input type="text" class="form-control" required="required" name="lp_no" value="{{ $rekapitulasi->lp_no }}">
                             </div>
                             <div class="mb-3">
-                                <label for="lp_tgl" class="form-label">LP Tanggal</label>
+                                <label for="lp_tgl" class="form-label">LP/LP1 Tanggal</label>
                                 <input type="date" class="form-control" required="required" name="lp_tgl" value="{{ \Carbon\Carbon::parse($rekapitulasi->lp_tgl)->format('Y-m-d') }}">
                             </div>
                             <div class="mb-3">
@@ -48,7 +48,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="jenis_pelangaran" class="form-label">Jenis Pelanggaran</label>
-                                <input type="text" class="form-control" required="required" name="jenis_pelangaran" value="{{ $rekapitulasi->jenis_pelanggar }}">
+                                <input type="text" class="form-control" required="required" name="jenis_pelangaran" value="{{ $rekapitulasi->jenis_pelanggaran }}">
                             </div>
                             <div class="mb-3">
                                 <label for="nama_pelanggar" class="form-label">Nama Pelanggar</label>
@@ -76,7 +76,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="sptp_tgl" class="form-label">SPTP Tanggal</label>
-                                <input type="date" class="form-control" required="required" name="sptp_tgl" value="{{ $rekapitulasi->sptp_tgl }}">
+                                <input type="date" class="form-control" required="required" name="sptp_tgl" value="{{ \Carbon\Carbon::parse($rekapitulasi->sptp_tgl)->format('Y-m-d') }}">
                             </div>
                             <div class="mb-3">
                                 <label for="spdp_no" class="form-label">SPDP No</label>
@@ -84,91 +84,90 @@
                             </div>
                             <div class="mb-3">
                                 <label for="spdp_tgl" class="form-label">SPDP Tanggal</label>
-                                <input type="date" class="form-control" required="required" name="spdp_tgl" value="{{ $rekapitulasi->spdp_tgl }}">
+                                <input type="date" class="form-control" required="required" name="spdp_tgl" value="{{ \Carbon\Carbon::parse($rekapitulasi->spdp_tgl)->format('Y-m-d') }}">
                             </div>
                             <div class="mb-3">
-                                <label for="sptp_no" class="form-label">Nama tersangka</label>
-                                <input type="text" class="form-control" required="required" name="nama_tesk" value="{{ $rekapitulasi->nama_tsk }}">
+                                <label for="nama_tsk" class="form-label">Nama tersangka</label>
+                                <input type="text" class="form-control" required="required" name="nama_tsk" value="{{ $rekapitulasi->nama_tsk }}">
                             </div>
                             <div class="mb-3">
-                                <label for="sptp_tgl" class="form-label">NIK NPWP</label>
-                                <input type="date" class="form-control" required="required" name="nik_npwp2" value="{{ $rekapitulasi->nik_npwp2 }}">
+                                <label for="nik_npwp2" class="form-label">NIK NPWP</label>
+                                <input type="" class="form-control" required="required" name="nik_npwp2" value="{{ $rekapitulasi->nik_npwp2 }}">
                             </div>
                             <div class="mb-3">
-                                <label for="spdp_no" class="form-label">Status proses</label>
+                                <label for="status_proses" class="form-label">Status proses</label>
                                 <input type="text" class="form-control" required="required" name="status_proses" value="{{ $rekapitulasi->status_proses }}">
                             </div>
                             <div class="mb-3">
-                                <label for="spdp_tgl" class="form-label">Perkiraan nilai barang</label>
-                                <input type="date" class="form-control" required="required" name="perkiraan_nilai_barang" value="{{ $rekapitulasi->perkiraan_nilai_barang }}">
+                                <label for="perkiraan_nilai_barang" class="form-label">Perkiraan nilai barang</label>
+                                <input type="number" class="form-control" required="required" name="perkiraan_nilai_barang" value="{{ $rekapitulasi->perkiraan_nilai_barang }}">
                             </div>
                             <div class="mb-3">
-                                <label for="sptp_no" class="form-label">Potensi kehilangan penerimaan negara</label>
-                                <input type="text" class="form-control" required="required" name="sptp_no" value="{{ $rekapitulasi->sptp_no }}">
+                                <label for="potensi_kehilangan_penerimaan_negara" class="form-label">Potensi kehilangan penerimaan negara</label>
+                                <input type="number" class="form-control" required="required" name="potensi_kehilangan_penerimaan_negara" value="{{ $rekapitulasi->potensi_kehilangan_penerimaan_negara }}">
                             </div>
                             <div class="mb-3">
-                                <label for="sptp_tgl" class="form-label">Nama pengguna jasa</label>
-                                <input type="date" class="form-control" required="required" name="nama_pengguna_jasa" value="{{ $rekapitulasi->nama_pengguna_jasa }}">
+                                <label for="nama_pengguna_jasa" class="form-label">Nama pengguna jasa</label>
+                                <input type="text" class="form-control" required="required" name="nama_pengguna_jasa" value="{{ $rekapitulasi->nama_pengguna_jasa }}">
                             </div>
                             <div class="mb-3">
-                                <label for="spdp_no" class="form-label">NPWP pengguna jasa</label>
+                                <label for="npwp_pengguna_jasa" class="form-label">NPWP pengguna jasa</label>
                                 <input type="text" class="form-control" required="required" name="npwp_pengguna_jasa" value="{{ $rekapitulasi->npwp_pengguna_jasa }}">
                             </div>
                             <div class="mb-3">
-                                <label for="spdp_tgl" class="form-label">Kode komoditi</label>
-                                <input type="date" class="form-control" required="required" name="kode_komoditi" value="{{ $rekapitulasi->kode_komoditi }}">
+                                <label for="kode_komoditi" class="form-label">Kode komoditi</label>
+                                <input type="text" class="form-control" required="required" name="kode_komoditi" value="{{ $rekapitulasi->kode_komoditi }}">
                             </div>
                             <div class="mb-3">
-                                <label for="sptp_no" class="form-label">Jenis</label>
+                                <label for="jenis" class="form-label">Jenis</label>
                                 <input type="text" class="form-control" required="required" name="jenis" value="{{ $rekapitulasi->jenis }}">
                             </div>
                             <div class="mb-3">
-                                <label for="sptp_tgl" class="form-label">Jumlah</label>
-                                <input type="date" class="form-control" required="required" name="jumlah" value="{{ $rekapitulasi->jumlah }}">
+                                <label for="jumlah" class="form-label">Jumlah</label>
+                                <input type="number" class="form-control" required="required" name="jumlah" value="{{ $rekapitulasi->jumlah }}">
                             </div>
                             <div class="mb-3">
-                                <label for="spdp_no" class="form-label">Satuan</label>
+                                <label for="satuan" class="form-label">Satuan</label>
                                 <input type="text" class="form-control" required="required" name="satuan" value="{{ $rekapitulasi->satuan }}">
                             </div>
                             <div class="mb-3">
-                                <label for="spdp_tgl" class="form-label">BA pencacahan</label>
-                                <input type="date" class="form-control" required="required" name="ba_pencacahan" value="{{ $rekapitulasi->ba_pencacahan }}">
+                                <label for="ba_pencacahan_no" class="form-label">BA pencacahan</label>
+                                <input type="text" class="form-control" required="required" name="ba_pencacahan_no" value="{{ $rekapitulasi->ba_pencacahan_no }}">
                             </div>
                             <div class="mb-3">
-                                <label for="sptp_no" class="form-label">BA pencacahan tanggal</label>
-                                <input type="text" class="form-control" required="required" name="ba_pencacahan_tgl" value="{{ $rekapitulasi->ba_pencacahan_tgl }}">
+                                <label for="ba_pencacagan_tgl" class="form-label">BA pencacahan tanggal</label>
+                                <input type="date" class="form-control" required="required" name="ba_pencacahan_tgl" value="{{ \Carbon\Carbon::parse($rekapitulasi->ba_pencacahan_tgl)->format('Y-m-d') }}">
                             </div>
                             <div class="mb-3">
-                                <label for="sptp_tgl" class="form-label">Kep BDN no</label>
-                                <input type="date" class="form-control" required="required" name="kep_bdn_no" value="{{ $rekapitulasi->kep_bdn_no }}">
+                                <label for="kep_bdn_no" class="form-label">Kep BDN no</label>
+                                <input type="text" class="form-control" required="required" name="kep_bdn_no" value="{{ $rekapitulasi->kep_bdn_no }}">
                             </div>
                             <div class="mb-3">
-                                <label for="spdp_no" class="form-label">Kep BDN tanggal</label>
-                                <input type="text" class="form-control" required="required" name="kep_bdn_tgl" value="{{ $rekapitulasi->kep_bdn_tgl }}">
+                                <label for="kep_bdn_tgl" class="form-label">Kep BDN tanggal</label>
+                                <input type="date" class="form-control" required="required" name="kep_bdn_tgl" value="{{ \Carbon\Carbon::parse($rekapitulasi->kep_bdn_tgl)->format('Y-m-d') }}">
                             </div>
                             <div class="mb-3">
-                                <label for="spdp_tgl" class="form-label">Kep BMN no</label>
-                                <input type="date" class="form-control" required="required" name="kep_bmn_tgl" value="{{ $rekapitulasi->kep_bmn_tgl }}">
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="spdp_no" class="form-label">Kep BMN tanggal</label>
-                                <input type="text" class="form-control" required="required" name="kep_bmn_tgl" value="{{ $rekapitulasi->kep_bmn_tgl }}">
+                                <label for="kep_bmn_no" class="form-label">Kep BMN no</label>
+                                <input type="text" class="form-control" required="required" name="kep_bmn_no" value="{{ $rekapitulasi->kep_bmn_no }}">
                             </div>
                             <div class="mb-3">
-                                <label for="spdp_tgl" class="form-label">Tap sita no</label>
-                                <input type="date" class="form-control" required="required" name="tap_sita_no" value="{{ $rekapitulasi->tap_sita_no }}">
+                                <label for="kep_bmn_tgl" class="form-label">Kep BMN tanggal</label>
+                                <input type="date" class="form-control" required="required" name="kep_bmn_tgl" value="{{ \Carbon\Carbon::parse($rekapitulasi->kep_bmn_tgl)->format('Y-m-d') }}">
                             </div>
                             <div class="mb-3">
-                                <label for="spdp_no" class="form-label">Tap sita tanggal</label>
-                                <input type="text" class="form-control" required="required" name="tap_sita_tgl" value="{{ $rekapitulasi->tap_sita_tgl }}">
+                                <label for="tap_sita_no" class="form-label">Tap sita no</label>
+                                <input type="text" class="form-control" required="required" name="tap_sita_no" value="{{ $rekapitulasi->tap_sita_no }}">
                             </div>
                             <div class="mb-3">
-                                <label for="spdp_tgl" class="form-label">Status</label>
-                                <input type="date" class="form-control" required="required" name="status" value="{{ $rekapitulasi->status }}">
+                                <label for="tap_sita_tgl" class="form-label">Tap sita tanggal</label>
+                                <input type="date" class="form-control" required="required" name="tap_sita_tgl" value="{{ \Carbon\Carbon::parse($rekapitulasi->tap_sita_tgl)->format('Y-m-d') }}">
                             </div>
                             <div class="mb-3">
-                                <label for="spdp_no" class="form-label">Proses</label>
+                                <label for="status" class="form-label">Status</label>
+                                <input type="text" class="form-control" required="required" name="status" value="{{ $rekapitulasi->status }}">
+                            </div>
+                            <div class="mb-3">
+                                <label for="proses" class="form-label">Proses</label>
                                 <input type="text" class="form-control" required="required" name="proses" value="{{ $rekapitulasi->proses }}">
                             </div>
                             <!-- Submit Button -->
