@@ -15,7 +15,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/importrekapitulasi', [RekapitulasiController::class, 'rekapitulasiimportexcel'])->name('importrekapitulasi');
     Route::delete('/dashboard/{id}', [RekapitulasiController::class, 'destroy'])->name('rekapitulasi.destroy');
     Route::get('/editData/{id}', [RekapitulasiController::class, 'edit'])->name('rekapitulasi.edit');
-    Route::put('/update', [RekapitulasiController::class, 'update'])->name('rekapitulasi.update');
+    Route::put('/update/{id}', [RekapitulasiController::class, 'update'])->name('rekapitulasi.update');
 });
 
 

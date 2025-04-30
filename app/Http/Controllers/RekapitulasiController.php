@@ -125,7 +125,7 @@ class RekapitulasiController extends Controller
             'nama_pelanggar' => 'nullable|string|max:255',
             'nik_npwp1' => 'nullable|string|max:250',
             'alternatif_penyelesaian_masalah' => 'nullable|string|max:250',
-            'pasal_dilanggar' => 'nullable|longText',
+            'pasal_dilanggar' => 'nullable|string',
             'lk_no' => 'nullable|string|max:200',
             'sptp_no' => 'nullable|string|max:200',
             'sptp_tgl' => 'nullable|date',
@@ -139,7 +139,7 @@ class RekapitulasiController extends Controller
             'nama_pengguna_jasa' => 'nullable|string|max:255',
             'npwp_pengguna_jasa' => 'nullable|string|max:200',
             'kode_komoditi' => 'nullable|string|max:100',
-            'jenis' => 'nullable|longText',
+            'jenis' => 'nullable|string',
             'jumlah' => 'nullable|numeric',
             'satuan' => 'nullable|string|max:50',
             'ba_pencacahan_no' => 'nullable|string|max:150',
@@ -153,9 +153,11 @@ class RekapitulasiController extends Controller
             'status' => 'nullable|string|max:100',
             'proses' => 'nullable|string|max:100',
         ]);
-    
-        $rekapitulasi = Rekapitulasi::findOrFail($request->id);
-    
+
+        // Retrieve the existing record
+        $rekapitulasi = Rekapitulasi::findOrFail($id);
+
+        // Update the record
         $rekapitulasi->update([
             'kantor' => $request->kantor,
             'sbp_no' => $request->sbp_no,
@@ -196,9 +198,11 @@ class RekapitulasiController extends Controller
             'status' => $request->status,
             'proses' => $request->proses,
         ]);
-    
+
+        // Redirect back to the dashboard with success message
         return redirect()->route('dashboard')->with('success', 'Data berhasil diperbarui');
     }
+
 
 
     public function destroy(string $id)

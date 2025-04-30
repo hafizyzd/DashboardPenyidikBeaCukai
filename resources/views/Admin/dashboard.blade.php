@@ -168,8 +168,8 @@
                                                     <td>{{ $item->lp_tgl }}</td>
                                                     <td>{{ $item->split_no }}</td>
                                                     <td>{{ $item->split_tgl }}</td>
-                                                    <td>{{ $item->jenis_pelanggaran }}</td>
-                                                    <td>{{ $item->nama_pelanggaran }}</td>
+                                                    <td>{{ $item->jenis_pelanggaran}}</td>
+                                                    <td>{{ $item->nama_pelanggar }}</td>
                                                     <td>{{ $item->nik_npwp1 }}</td>
                                                     <td>{{ $item->alternatif_penyelesaian_masalah }}</td>
                                                     <td>{{ $item->pasal_dilanggar }}</td>
@@ -189,12 +189,12 @@
                                                     <td>{{ $item->jenis }}</td>
                                                     <td>{{ $item->jumlah }}</td>
                                                     <td>{{ $item->satuan }}</td>
-                                                    <td>{{ $item->ba_pecahan_no }}</td>
-                                                    <td>{{ $item->ba_pecahan_tgl }}</td>
+                                                    <td>{{ $item->ba_pencacahan_no }}</td>
+                                                    <td>{{ $item->ba_pencacahan_tgl }}</td>
                                                     <td>{{ $item->kep_bdn_no }}</td>
-                                                    <td>{{ $item->kp_bdn_tgl }}</td>
+                                                    <td>{{ $item->kep_bdn_tgl }}</td>
                                                     <td>{{ $item->kep_bmn_no }}</td>
-                                                    <td>{{ $item->kp_bmn_tgl }}</td>
+                                                    <td>{{ $item->kep_bmn_tgl }}</td>
                                                     <td>{{ $item->tap_sita_no }}</td>
                                                     <td>{{ $item->tap_sita_tgl }}</td>
                                                     <td>{{ $item->status }}</td>
