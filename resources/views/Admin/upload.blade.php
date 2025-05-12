@@ -22,7 +22,7 @@
                         </div>
                         <button type="submit" style="background-color:#123458" class="btn m-3 text-white">Upload</button>
                     </form>
-                    <div>
+                    <div class="m-2">
                         @if($message = Session::get('success'))
                             <div class="alert alert-success" role="alert">
                                 {{ $message }}

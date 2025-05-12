@@ -14,7 +14,8 @@
                         <h5>Tambah Data Rekapitulasi Penyidikan</h5>
                     </div>
                     <div class="card-body">
-                    <form action="{{ route('store.laporan') }}" method="POST">
+                        <form action="{{ route('store.laporan') }}" method="POST">
+                            @csrf
                             <div class="mb-3">
                                 <label for="kantor" class="form-label">Nama Kantor</label>
                                 <input type="text" class="form-control" required="required" name="kantor">
@@ -44,8 +45,8 @@
                                 <input type="date" class="form-control" name="split_tgl">
                             </div>
                             <div class="mb-3">
-                                <label for="jenis_pelangaran" class="form-label">Jenis Pelanggaran</label>
-                                <input type="text" class="form-control" required="required" name="jenis_pelangaran">
+                                <label for="jenis_pelanggaran" class="form-label">Jenis Pelanggaran</label>
+                                <input type="text" class="form-control" required="required" name="jenis_pelanggaran">
                             </div>
                             <div class="mb-3">
                                 <label for="nama_pelanggar" class="form-label">Nama Pelanggar</label>
@@ -73,7 +74,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="sptp_tgl" class="form-label">SPTP Tanggal</label>
-                                <input type="date" class="form-control">
+                                <input type="date" class="form-control" name="sptp_tgl">
                             </div>
                             <div class="mb-3">
                                 <label for="spdp_no" class="form-label">SPDP No</label>

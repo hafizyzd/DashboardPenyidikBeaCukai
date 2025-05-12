@@ -27,7 +27,7 @@
                                     <div class="card text-white mb-4 text-center hover-effect shadow" style="background-color:#FCB454">
                                         <div class="card-body">Dalam Proses Penyidikan</div>
                                         <div>
-                                            <h3>{{$statusProses}}</h3>
+                                            <h3>{{ $statusProses ?? 'Status Proses Tidak Tersedia' }}</h3>
                                         </div>
                                         <div class="card-footer d-flex align-items-center justify-content-between">
                                             <a class="small text-white stretched-link" href="#">View Details</a>
@@ -39,7 +39,7 @@
                                     <div class="card text-white mb-4 text-center hover-effect shadow" style="background-color:#67AE6E">
                                         <div class="card-body">Potensi Kerugian Negara</div>
                                             <div>
-                                                <h3>{{ formatRupiah($totalPotensiKerugian)}}</h3>
+                                                <h3>Rp {{ number_format($totalPotensiKerugian, 0, ',', '.') }}</h3>
                                             </div>
                                             <div class="card-footer d-flex align-items-center justify-content-between">
                                                 <a class="small text-white stretched-link" href="#">View Details</a>
@@ -181,8 +181,8 @@
                                                     <td>{{ $item->nama_tsk }}</td>
                                                     <td>{{ $item->nik_npwp2 }}</td>
                                                     <td>{{ $item->status_proses }}</td>
-                                                    <td>{{ $item->perkiraan_nilai_barang }}</td>
-                                                    <td>{{ $item->potensi_kehilangan_penerimaan_negara }}</td>
+                                                    <td>{{ formatRupiah($item->perkiraan_nilai_barang) }}</td>
+                                                    <td>{{ formatRupiah($item->potensi_kehilangan_penerimaan_negara) }}</td>
                                                     <td>{{ $item->nama_pengguna_jasa }}</td>
                                                     <td>{{ $item->npwp_pengguna_jasa }}</td>
                                                     <td>{{ $item->kode_komoditi }}</td>
