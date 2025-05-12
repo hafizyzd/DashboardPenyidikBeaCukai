@@ -18,7 +18,15 @@
                         <div class="sb-nav-link-icon">
                         <span class="material-symbols-outlined">upload_file</span>
                         </div>
-                        <p style="color:#000000; margin-left: 10px; margin-bottom: 0;">Kirim Data Laporan</p>
+                        <p style="color:#000000; margin-left: 10px; margin-bottom: 0;">Upload File Laporan</p>
+                    </div>
+                </a>
+                <a class="nav-link" href="{{ route('tambah.laporan') }}" style="background-color:#EAEAEA">
+                    <div class="d-flex align-items-center" style="height: 30px;">
+                        <div class="sb-nav-link-icon">
+                        <span class="material-symbols-outlined">upload_file</span>
+                        </div>
+                        <p style="color:#000000; margin-left: 10px; margin-bottom: 0;">Tambah Laporan</p>
                     </div>
                 </a>
             </div>

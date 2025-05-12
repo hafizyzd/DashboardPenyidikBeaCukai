@@ -89,7 +89,7 @@ class RekapitulasiController extends Controller
 
     public function create()
     {
-        //
+        return view('Admin.tambahLaporan');
     }
 
 

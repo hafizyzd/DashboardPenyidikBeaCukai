@@ -16,6 +16,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/dashboard/{id}', [RekapitulasiController::class, 'destroy'])->name('rekapitulasi.destroy');
     Route::get('/editData/{id}', [RekapitulasiController::class, 'edit'])->name('rekapitulasi.edit');
     Route::put('/update/{id}', [RekapitulasiController::class, 'update'])->name('rekapitulasi.update');
+    Route::get('/tambah-laporan', [RekapitulasiController::class, 'create'])->name('tambah.laporan');
+    Route::post('/tambah-laporan', [RekapitulasiController::class, 'store'])->name('store.laporan');
 });
 
 
