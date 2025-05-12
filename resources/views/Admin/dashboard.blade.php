@@ -68,7 +68,11 @@
                                             <i class="fas fa-chart-pie me-1"></i>
                                             Tindak Pidana
                                         </div>
-                                        <div class="card-body"><canvas id="myPieChart" width="100%" height="50"></canvas></div>
+                                        <div class="card-body">
+                                            <canvas id="violationChart" width="100%" height="20"></canvas>
+                                            <!-- <canvas id="myPieChart" width="100%" height="50"></canvas> -->
+                                    
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-xl-6">
@@ -81,8 +85,9 @@
                                     </div>
                                 </div>
                             </div>
-
                             
+                        
+
                             <div class="card mb-4 hover-effect-1 shadow" style="display: flex; flex-direction: column; height: 550px;">
                                 <div class="card-header thick">
                                     <i class="fas fa-table me-1"></i>
@@ -228,7 +233,39 @@
                 </div>
             </div>
          </div>
-         
 
+        <script>
+            var ctx = document.getElementById('violationChart').getContext('2d');
+            var violationChart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: @json($jenisPelanggaran->keys()), // Labels from the keys of the collection
+                    datasets: [{
+                        label: 'Jenis Pelanggaran',
+                        data: @json($jenisPelanggaran->values()), // Values from the counts
+                        backgroundColor: ['#309898', '#FF9F00', '#F4631E', '#CB0404','#626F47','#A4B465','#A5B68D','#2C3930','#C1CFA1','#B9B28A','#504B38','#124076','#8CB9BD','#638889'], // Customize colors
+                        borderColor: ['#309898', '#FF9F00', '#F4631E', '#CB0404','#626F47','#A4B465','#A5B68D','#2C3930','#C1CFA1','#B9B28A','#504B38','#124076','#8CB9BD','#638889'],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(tooltipItem) {
+                                    return tooltipItem.label + ': ' + tooltipItem.raw + ' violations';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            console.log(@json($jenisPelanggaran)); // Log to check the data being passed
+        </script>
     </body>
 @endsection

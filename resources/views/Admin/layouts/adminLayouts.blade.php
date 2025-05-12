@@ -20,6 +20,8 @@
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="{{ asset('assets/js/admindashboard.js') }}" defer></script>
         <script src="{{ asset('assets/js/navadmin.js') }}" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     </head>
     <body class="sb-nav-fixed">
         @include('Admin.partials.navadmin')

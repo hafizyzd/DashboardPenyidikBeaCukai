@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Rekapitulasi;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class RekapitulasiController extends Controller
 {
@@ -61,8 +62,10 @@ class RekapitulasiController extends Controller
         $totalPotensiKerugian = Rekapitulasi::sum('potensi_kehilangan_penerimaan_negara');
         $jumlahTersangka = Rekapitulasi::whereNotIn('nama_pelanggar', ['Tidak dikenal','tidak dikenal', '-'])->count();
         $statusProses = Rekapitulasi::whereNotIn('status_proses', [' ', '-'])->count();
-
-        return view('Admin.dashboard', compact('rekapitulasi', 'totalPotensiKerugian', 'jumlahTersangka','statusProses','search'));
+        $jenisPelanggaran = Rekapitulasi::select('jenis_pelanggaran', DB::raw('count(*) as count'))
+            ->groupBy('jenis_pelanggaran')
+            ->pluck('count', 'jenis_pelanggaran');
+        return view('Admin.dashboard', compact('rekapitulasi', 'totalPotensiKerugian', 'jumlahTersangka','statusProses','search','jenisPelanggaran'));
     }
 
     public function rekapitulasiexport(){
