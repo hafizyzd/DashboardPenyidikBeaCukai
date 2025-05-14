@@ -35,5 +35,5 @@
         <script src="{{ asset('assets/js/scripts.js') }}"></script>
         <script src="{{ asset('assets/js/datatables-simple-demo.js') }}"></script>
         <script src="{{ asset('assets/js/pie-chart.js') }}"></script>
-
+        <script src="{{ asset('assets/js/bar-chart-kantor.js') }}"></script>
 </html>

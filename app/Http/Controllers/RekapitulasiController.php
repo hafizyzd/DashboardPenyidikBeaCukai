@@ -65,7 +65,15 @@ class RekapitulasiController extends Controller
         $jenisPelanggaran = Rekapitulasi::select('jenis_pelanggaran', DB::raw('count(*) as count'))
             ->groupBy('jenis_pelanggaran')
             ->pluck('count', 'jenis_pelanggaran');
-        return view('Admin.dashboard', compact('rekapitulasi', 'totalPotensiKerugian', 'jumlahTersangka','statusProses','search','jenisPelanggaran'));
+
+        $chartData = Rekapitulasi::select('kantor', 
+                DB::raw('SUM(potensi_kehilangan_penerimaan_negara) as total_kerugian'),
+                DB::raw('SUM(perkiraan_nilai_barang) as total_nilai'))
+        ->groupBy('kantor')
+        ->get();
+
+
+        return view('Admin.dashboard', compact('rekapitulasi', 'totalPotensiKerugian', 'jumlahTersangka','statusProses','search','jenisPelanggaran','chartData'));
     }
 
     public function rekapitulasiexport(){
