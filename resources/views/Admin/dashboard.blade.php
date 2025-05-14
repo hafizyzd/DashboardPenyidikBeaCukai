@@ -69,9 +69,13 @@
                                             Tindak Pidana
                                         </div>
                                         <div class="card-body">
-                                            <canvas id="violationChart" width="100%" height="20"></canvas>
-                                            <!-- <canvas id="myPieChart" width="100%" height="50"></canvas> -->
-                                    
+                                            <canvas id="violationChart" width="100%" height="80"></canvas>
+                                            <div id="labelsData" style="display:none;">
+                                                @json($jenisPelanggaran->keys())
+                                            </div>
+                                            <div id="dataValues" style="display:none;">
+                                                @json($jenisPelanggaran->values())
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -234,15 +238,15 @@
             </div>
          </div>
 
-        <script>
+        <!-- <script>
             var ctx = document.getElementById('violationChart').getContext('2d');
             var violationChart = new Chart(ctx, {
                 type: 'pie',
                 data: {
-                    labels: @json($jenisPelanggaran->keys()), // Labels from the keys of the collection
+                    labels: @json($jenisPelanggaran->keys()), 
                     datasets: [{
                         label: 'Jenis Pelanggaran',
-                        data: @json($jenisPelanggaran->values()), // Values from the counts
+                        data: @json($jenisPelanggaran->values()), 
                         backgroundColor: ['#309898', '#FF9F00', '#F4631E', '#CB0404','#626F47','#A4B465','#A5B68D','#2C3930','#C1CFA1','#B9B28A','#504B38','#124076','#8CB9BD','#638889'], // Customize colors
                         borderColor: ['#309898', '#FF9F00', '#F4631E', '#CB0404','#626F47','#A4B465','#A5B68D','#2C3930','#C1CFA1','#B9B28A','#504B38','#124076','#8CB9BD','#638889'],
                         borderWidth: 1
@@ -257,7 +261,7 @@
                         tooltip: {
                             callbacks: {
                                 label: function(tooltipItem) {
-                                    return tooltipItem.label + ': ' + tooltipItem.raw + ' violations';
+                                    return tooltipItem.label + ': ' + tooltipItem.raw + ' Pelanggaran';
                                 }
                             }
                         }
@@ -265,7 +269,7 @@
                 }
             });
 
-            console.log(@json($jenisPelanggaran)); // Log to check the data being passed
-        </script>
+            console.log(@json($jenisPelanggaran)); 
+        </script> -->
     </body>
 @endsection
