@@ -81,8 +81,18 @@ class RekapitulasiController extends Controller
         $labels = $data->pluck('kantor')->toArray();
         $jumlahPelanggar = $data->pluck('jumlah_pelanggar')->toArray();
 
+        
+        // Query untuk mengambil jumlah pelanggaran berdasarkan pasal yang dilanggar
+        $dataPasal = Rekapitulasi::select('pasal_dilanggar', DB::raw('count(*) as jumlah_pelanggaran'))
+            ->groupBy('pasal_dilanggar')
+            ->get();
 
-        return view('Admin.dashboard', compact('rekapitulasi', 'totalPotensiKerugian', 'jumlahTersangka','statusProses','search','jenisPelanggaran','chartData','labels','jumlahPelanggar'));
+        // Mengubah data ke dalam format yang bisa dipakai oleh chart.js
+        $pasalDilanggar = $dataPasal->pluck('pasal_dilanggar')->toArray();
+        $jumlahPelanggaranPasal = $dataPasal->pluck('jumlah_pelanggaran')->toArray();
+
+
+        return view('Admin.dashboard', compact('rekapitulasi', 'totalPotensiKerugian', 'jumlahTersangka','statusProses','search','jenisPelanggaran','chartData','labels','jumlahPelanggar','pasalDilanggar','jumlahPelanggaranPasal'));
     }
 
     public function rekapitulasiexport(){

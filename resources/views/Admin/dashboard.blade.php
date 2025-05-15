@@ -99,6 +99,20 @@
                                 <div class="col-xl-12 custom-height">
                                     <div class="card mb-4 hover-effect-1 shadow">
                                         <div class="card-header text-white" style="background-color: #27548A;">
+                                            <i class="fas fa-chart-pie me-1"></i>
+                                            Jumlah Pelanggaran berdasarkan pasal hukum yang dilanggar
+                                        </div>
+                                        <div class="card-body">
+                                            <canvas id="PieChartPasal" width="40%" height="40%"></canvas> <!-- Reduced size -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-xl-12 custom-height">
+                                    <div class="card mb-4 hover-effect-1 shadow">
+                                        <div class="card-header text-white" style="background-color: #27548A;">
                                             <i class="fas fa-chart-bar me-1"></i>
                                             Potensi Kehilangan Penerimaan Negara dan Nilai Barang
                                         </div>
@@ -497,5 +511,37 @@
             });
         </script>
 
+        <script>
+            var ctx = document.getElementById('PieChartPasal').getContext('2d');
+            var pieChart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: @json($pasalDilanggar), 
+                    datasets: [{
+                        label: 'Jumlah Pelanggaran',
+                        data: @json($jumlahPelanggaranPasal), 
+                        backgroundColor: [
+                            '#3674B5', '#578FCA', '#A1E3F9', '#D1F8EF', '#90D1CA', '#129990', '#4ED7F1','#60B5FF','#AFDDFF','#9FB3DF','#57B4BA','#3674B5'
+                        ], 
+                        hoverOffset: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(tooltipItem) {
+                                    return tooltipItem.label + ': ' + tooltipItem.raw + ' pelanggaran';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        </script>
     </body>
 @endsection
