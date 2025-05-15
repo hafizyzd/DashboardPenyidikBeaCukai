@@ -62,6 +62,7 @@ class RekapitulasiController extends Controller
         $totalPotensiKerugian = Rekapitulasi::sum('potensi_kehilangan_penerimaan_negara');
         $jumlahTersangka = Rekapitulasi::whereNotIn('nama_pelanggar', ['Tidak dikenal','tidak dikenal', '-'])->count();
         $statusProses = Rekapitulasi::whereNotIn('status_proses', [' ', '-'])->count();
+        
         $jenisPelanggaran = Rekapitulasi::select('jenis_pelanggaran', DB::raw('count(*) as count'))
             ->groupBy('jenis_pelanggaran')
             ->pluck('count', 'jenis_pelanggaran');
@@ -69,11 +70,19 @@ class RekapitulasiController extends Controller
         $chartData = Rekapitulasi::select('kantor', 
                 DB::raw('SUM(potensi_kehilangan_penerimaan_negara) as total_kerugian'),
                 DB::raw('SUM(perkiraan_nilai_barang) as total_nilai'))
-        ->groupBy('kantor')
-        ->get();
+            ->groupBy('kantor')
+            ->get();
+
+         $data = Rekapitulasi::select('kantor', DB::raw('count(nama_pelanggar) as jumlah_pelanggar'))
+            ->groupBy('kantor')
+            ->get();
+
+        // Mengubah data ke dalam format yang bisa dipakai oleh chart.js
+        $labels = $data->pluck('kantor')->toArray();
+        $jumlahPelanggar = $data->pluck('jumlah_pelanggar')->toArray();
 
 
-        return view('Admin.dashboard', compact('rekapitulasi', 'totalPotensiKerugian', 'jumlahTersangka','statusProses','search','jenisPelanggaran','chartData'));
+        return view('Admin.dashboard', compact('rekapitulasi', 'totalPotensiKerugian', 'jumlahTersangka','statusProses','search','jenisPelanggaran','chartData','labels','jumlahPelanggar'));
     }
 
     public function rekapitulasiexport(){

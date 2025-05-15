@@ -62,14 +62,15 @@
                             </div>
 
                             <div class="row">
-                                <div class="col-xl-12 custom-height">
+                                <!-- Chart Tindak Pidana -->
+                                <div class="col-xl-6 custom-height">
                                     <div class="card mb-4 hover-effect-1 shadow">
                                         <div class="card-header text-white" style="background-color: #27548A;">
                                             <i class="fas fa-chart-pie me-1"></i>
                                             Tindak Pidana
                                         </div>
                                         <div class="card-body">
-                                            <canvas id="violationChart" width="100%" height="35"></canvas>
+                                            <canvas id="violationChart" width="60%" height="60%"></canvas> <!-- Reduced size -->
                                             <div id="labelsData" style="display:none;">
                                                 @json($jenisPelanggaran->keys())
                                             </div>
@@ -79,6 +80,22 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <!-- Chart Jumlah Tersangka Setiap Kantor -->
+                                <div class="col-xl-6 custom-height">
+                                    <div class="card mb-4 hover-effect-1 shadow">
+                                        <div class="card-header text-white" style="background-color: #27548A;">
+                                            <i class="fas fa-chart-pie me-1"></i>
+                                            Jumlah Tersangka Setiap Kantor
+                                        </div>
+                                        <div class="card-body">
+                                            <canvas id="donutChart" width="60%" height="60%"></canvas> <!-- Reduced size -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
                                 <div class="col-xl-12 custom-height">
                                     <div class="card mb-4 hover-effect-1 shadow">
                                         <div class="card-header text-white" style="background-color: #27548A;">
@@ -431,6 +448,47 @@
                                     // Use Intl.NumberFormat to format the number with commas
                                     var formattedValue = new Intl.NumberFormat().format(tooltipItem.raw);
                                     return tooltipItem.dataset.label + ': Rp ' + formattedValue; // Format tooltips as Rupiah with commas
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        </script>
+        <script>
+            var ctx = document.getElementById('donutChart').getContext('2d');
+            var donutChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: @json($labels), // Menampilkan data label kantor
+                    datasets: [{
+                        label: 'Jumlah Pelanggar',
+                        data: @json($jumlahPelanggar), // Menampilkan data jumlah pelanggar
+                        backgroundColor: [
+                            '#213448',
+                            '#547792',
+                            '#94B4C1',
+                            '#ECEFCA',
+                            '#243642',
+                            '#387478',
+                            '#629584',
+                            '#697565',
+                            '#ECDFCC',
+                            '#697565'
+                        ],
+                        hoverOffset: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(tooltipItem) {
+                                    return tooltipItem.label + ': ' + tooltipItem.raw + ' Tersangka';
                                 }
                             }
                         }

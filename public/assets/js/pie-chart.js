@@ -10,8 +10,8 @@ document.addEventListener('DOMContentLoaded', function () {
             datasets: [{
                 label: 'Jenis Pelanggaran',
                 data: data, // Data from the Blade data
-                backgroundColor: ['#309898', '#FF9F00', '#F4631E', '#CB0404','#626F47','#A4B465','#A5B68D','#2C3930','#C1CFA1','#B9B28A','#504B38','#124076','#8CB9BD','#638889'],
-                borderColor: ['#309898', '#FF9F00', '#F4631E', '#CB0404','#626F47','#A4B465','#A5B68D','#2C3930','#C1CFA1','#B9B28A','#504B38','#124076','#8CB9BD','#638889'],
+                backgroundColor: ['#328E6E', '#67AE6E', '#90C67C', '#E1EEBC','#DDEB9D','#A0C878','#3D8D7A','B3D8A8','#FBFFE4','#B8D576','#AAB99A','#AEEA94','#889E73','#B1C29E'],
+                borderColor: ['#328E6E', '#67AE6E', '#90C67C', '#E1EEBC','#DDEB9D','#A0C878','#3D8D7A','B3D8A8','#FBFFE4','#B8D576','#AAB99A','#AEEA94','#889E73','#B1C29E'],
                 borderWidth: 1
             }]
         },
