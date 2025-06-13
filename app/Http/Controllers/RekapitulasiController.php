@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\RekapitulasiTemplateExport;
 use App\Exports\RekapitulasiExport;
 use App\Imports\RekapitulasiImport;
 use Maatwebsite\Excel\Facades\Excel;
@@ -324,5 +325,10 @@ class RekapitulasiController extends Controller
         $rekapitulasi = Rekapitulasi::findOrFail($id);
         $rekapitulasi->delete();
         return redirect()->route('dashboard')->with('success', 'Data berhasil dihapus');
+    }
+
+    public function downloadTemplate()
+    {
+        return Excel::download(new RekapitulasiTemplateExport, 'template_rekapitulasi.xlsx');
     }
 }

@@ -18,6 +18,7 @@ Route::middleware('auth')->group(function () {
     Route::put('/update/{id}', [RekapitulasiController::class, 'update'])->name('rekapitulasi.update');
     Route::get('/tambah-laporan', [RekapitulasiController::class, 'create'])->name('tambah.laporan');
     Route::post('/tambah-laporan', [RekapitulasiController::class, 'store'])->name('store.laporan');
+    Route::get('/download-template', [RekapitulasiController::class, 'downloadTemplate'])->name('download.template');
 });
 
 
