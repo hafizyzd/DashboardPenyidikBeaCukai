@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\Rekapitulasi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Throwable;
 
 class RekapitulasiController extends Controller
 {
@@ -100,17 +101,31 @@ class RekapitulasiController extends Controller
         return Excel::download(new RekapitulasiExport,'rekapitulasi.xlsx');
     }
     
+    // public function rekapitulasiimportexcel(Request $request)
+    // {
+    //     if ($request->hasFile('file')) { 
+    //         $file = $request->file('file'); 
+    //         $namaFile = $file->getClientOriginalName();
+    //         $file->move('DataRekapitulasi', $namaFile);
+    
+    //         Excel::import(new RekapitulasiImport, public_path('/DataRekapitulasi/'.$namaFile));
+    //         return redirect('/upload')->with('success', 'File berhasil diunggah dan diproses.');
+    //     } else {
+    //         return redirect('/upload')->with('error', 'Tidak ada file yang diunggah.');
+    //     }
+    // }
     public function rekapitulasiimportexcel(Request $request)
     {
-        if ($request->hasFile('file')) { 
-            $file = $request->file('file'); 
-            $namaFile = $file->getClientOriginalName();
-            $file->move('DataRekapitulasi', $namaFile);
-    
-            Excel::import(new RekapitulasiImport, public_path('/DataRekapitulasi/'.$namaFile));
-            return redirect('/upload')->with('success', 'File berhasil diunggah dan diproses.');
-        } else {
+        if (!$request->hasFile('file')) {
             return redirect('/upload')->with('error', 'Tidak ada file yang diunggah.');
+        }
+        try {
+            $file = $request->file('file');
+            Excel::import(new RekapitulasiImport, $file);
+            return redirect('/upload')->with('success', 'File berhasil diunggah dan data berhasil diproses.');
+        } catch (Throwable $e) {
+            //Jika terjadi error(nama kolom salah, format data salah, dll)
+            return redirect('/upload')->with('error', 'Impor Gagal! Pastikan format file dan semua nama kolom sudah sesuai dengan template.');
         }
     }
 
