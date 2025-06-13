@@ -35,7 +35,7 @@
                     </div>
 
                     <div class="card-footer">
-                        <button type="button" style="background-color:#78B3CE" class="btn mx-auto text-white">Download Template Excel</button>
+                        <a href="{{ route('download.template') }}" style="background-color:#3674B5" class="btn mx-auto text-white">Download Template Excel</a>
                     </div>
                 </div>
             </main>
