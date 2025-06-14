@@ -9,7 +9,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('rekapitulasis', function (Blueprint $table) {
-            $table->id();
+            //$table->id();
+            $table->uuid('id')->primary();
             $table->string('kantor', 200)->nullable();
             $table->string('sbp_no',150)->nullable();
             $table->date('sbp_tgl')->nullable();  
