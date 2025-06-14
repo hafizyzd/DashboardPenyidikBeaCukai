@@ -79,17 +79,13 @@ class RekapitulasiController extends Controller
             ->groupBy('kantor')
             ->get();
 
-        // Mengubah data ke dalam format yang bisa dipakai oleh chart.js
         $labels = $data->pluck('kantor')->toArray();
         $jumlahPelanggar = $data->pluck('jumlah_pelanggar')->toArray();
 
-        
-        // Query untuk mengambil jumlah pelanggaran berdasarkan pasal yang dilanggar
         $dataPasal = Rekapitulasi::select('pasal_dilanggar', DB::raw('count(*) as jumlah_pelanggaran'))
             ->groupBy('pasal_dilanggar')
             ->get();
 
-        // Mengubah data ke dalam format yang bisa dipakai oleh chart.js
         $pasalDilanggar = $dataPasal->pluck('pasal_dilanggar')->toArray();
         $jumlahPelanggaranPasal = $dataPasal->pluck('jumlah_pelanggaran')->toArray();
 

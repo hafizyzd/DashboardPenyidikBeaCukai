@@ -2,13 +2,16 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Rekapitulasi extends Model
 {
+    use HasFactory, HasUuids;
+
     protected $table = 'rekapitulasis';
-    protected $primaryKey = "id";
+    protected $guarded = ['id'];
     protected $fillable = [
         'kantor', 'sbp_no', 'sbp_tgl', 'lp_no', 'lp_tgl', 'split_no', 'split_tgl', 'jenis_pelanggaran', 
         'nama_pelanggar', 'nik_npwp1', 'alternatif_penyelesaian_masalah', 'pasal_dilanggar', 'lk_no', 
