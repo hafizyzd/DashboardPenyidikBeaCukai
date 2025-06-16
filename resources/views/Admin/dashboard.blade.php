@@ -102,8 +102,8 @@
                                             <i class="fas fa-chart-pie me-1"></i>
                                             Jumlah Pelanggaran berdasarkan pasal hukum yang dilanggar
                                         </div>
-                                        <div class="card-body">
-                                            <canvas id="PieChartPasal" width="40%" height="40%"></canvas> <!-- Reduced size -->
+                                        <div class="card-body" style="height: 650px;"> 
+                                            <canvas id="PieChartPasal"></canvas> 
                                         </div>
                                     </div>
                                 </div>
@@ -118,16 +118,6 @@
                                         </div>
                                         <div class="card-body">
                                             <canvas id="BarChart" width="100%" height="45"></canvas>
-                                            <!-- Hidden divs for passing data -->
-                                            <!-- <div id="labelsDataKantor" style="display:none;">
-                                                @json($chartData->pluck('kantor'))
-                                            </div>
-                                            <div id="dataPotensiKantor" style="display:none;">
-                                                @json($chartData->pluck('total_kerugian'))
-                                            </div>
-                                            <div id="dataNilaiKantor" style="display:none;">
-                                                @json($chartData->pluck('total_nilai'))
-                                            </div> -->
                                         </div>
                                     </div>
                                 </div>
@@ -212,7 +202,7 @@
                                             <tbody>
                                                 @foreach($rekapitulasi as $item)
                                                     <tr>
-                                                        <td>{{ $item->id }}</td>
+                                                        <td>{{ $loop->iteration }}</td>
                                                         <td>{{ $item->kantor }}</td>
                                                         <td>{{ $item->sbp_no }}</td>
                                                         <td>{{ $item->sbp_tgl }}</td>
@@ -528,6 +518,7 @@
                 },
                 options: {
                     responsive: true,
+                    maintainAspectRatio: false,
                     plugins: {
                         legend: {
                             position: 'top',
