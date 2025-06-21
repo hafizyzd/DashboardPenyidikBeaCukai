@@ -16,7 +16,9 @@
                                 <div class="col-xl-3 col-md-6">
                                     <div class="card text-white mb-4 text-center hover-effect shadow" style="background-color:#27548A">
                                         <div class="card-body">Jumlah Penyidik</div>
-                                        <div> <h3> - </h3> </div>
+                                        <div class="mb-4"> 
+                                            <h3> - </h3> 
+                                        </div>
                                         <!-- <div class="card-footer d-flex align-items-center justify-content-between">
                                             <a class="small text-white stretched-link" href="#">View Details</a>
                                             <div class="small text-white"><i class="fas fa-angle-right"></i></div>
@@ -26,7 +28,7 @@
                                 <div class="col-xl-3 col-md-6">
                                     <div class="card text-white mb-4 text-center hover-effect shadow" style="background-color:#FCB454">
                                         <div class="card-body">Dalam Proses Penyidikan</div>
-                                        <div>
+                                        <div class="mb-4">
                                             <h3>{{ $statusProses ?? 'Status Proses Tidak Tersedia' }}</h3>
                                         </div>
                                         <!-- <div class="card-footer d-flex align-items-center justify-content-between">
@@ -38,19 +40,18 @@
                                 <div class="col-xl-3 col-md-6">
                                     <div class="card text-white mb-4 text-center hover-effect shadow" style="background-color:#67AE6E">
                                         <div class="card-body">Potensi Kerugian Negara</div>
-                                            <div>
+                                            <div class="mb-4">
                                                 <h3>Rp {{ number_format($totalPotensiKerugian, 0, ',', '.') }}</h3>
                                             </div>
                                             <!-- <div class="card-footer d-flex align-items-center justify-content-between">
                                                 <a class="small text-white stretched-link" href="#">View Details</a>
                                             <div class="small text-white"><i class="fas fa-angle-right"></i></div> -->
-                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-xl-3 col-md-6">
                                     <div class="card text-white mb-4 text-center hover-effect shadow" style="background-color:#A62C2C">
                                         <div class="card-body">Tersangka</div>
-                                        <div>
+                                        <div class="mb-4">
                                             <h3>{{ $jumlahTersangka }}</h3>
                                         </div>
                                         <!-- <div class="card-footer d-flex align-items-center justify-content-between">
